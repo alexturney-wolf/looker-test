@@ -1,0 +1,477 @@
+# The name of this view in Looker is "Shopify Orders"
+view: shopify__orders {
+  # The sql_table_name parameter indicates the underlying database table
+  # to be used for all fields in this view.
+  sql_table_name: `schema_shopify.shopify__orders`
+    ;;
+  drill_fields: [order_id]
+  # This primary key is the unique key for this table in the underlying database.
+  # You need to define a primary key in a view in order to join to other views.
+
+  dimension: order_id {
+    primary_key: yes
+    type: number
+    sql: ${TABLE}.order_id ;;
+  }
+
+  # Dates and timestamps can be represented in Looker using a dimension group of type: time.
+  # Looker converts dates and timestamps to the specified timeframes within the dimension group.
+
+  dimension_group: _fivetran_synced {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}._fivetran_synced ;;
+  }
+
+  # Here's what a typical dimension looks like in LookML.
+  # A dimension is a groupable field that can be used to filter query results.
+  # This dimension will be called "Billing Address Address 1" in Explore.
+
+  dimension: billing_address_address_1 {
+    type: string
+    sql: ${TABLE}.billing_address_address_1 ;;
+  }
+
+  dimension: billing_address_address_2 {
+    type: string
+    sql: ${TABLE}.billing_address_address_2 ;;
+  }
+
+  dimension: billing_address_city {
+    type: string
+    sql: ${TABLE}.billing_address_city ;;
+  }
+
+  dimension: billing_address_company {
+    type: string
+    sql: ${TABLE}.billing_address_company ;;
+  }
+
+  dimension: billing_address_country {
+    type: string
+    sql: ${TABLE}.billing_address_country ;;
+  }
+
+  dimension: billing_address_country_code {
+    type: string
+    sql: ${TABLE}.billing_address_country_code ;;
+  }
+
+  dimension: billing_address_first_name {
+    type: string
+    sql: ${TABLE}.billing_address_first_name ;;
+  }
+
+  dimension: billing_address_last_name {
+    type: string
+    sql: ${TABLE}.billing_address_last_name ;;
+  }
+
+  dimension: billing_address_latitude {
+    type: string
+    sql: ${TABLE}.billing_address_latitude ;;
+  }
+
+  dimension: billing_address_longitude {
+    type: string
+    sql: ${TABLE}.billing_address_longitude ;;
+  }
+
+  dimension: billing_address_name {
+    type: string
+    sql: ${TABLE}.billing_address_name ;;
+  }
+
+  dimension: billing_address_phone {
+    type: string
+    sql: ${TABLE}.billing_address_phone ;;
+  }
+
+  dimension: billing_address_province {
+    type: string
+    sql: ${TABLE}.billing_address_province ;;
+  }
+
+  dimension: billing_address_province_code {
+    type: string
+    sql: ${TABLE}.billing_address_province_code ;;
+  }
+
+  dimension: billing_address_zip {
+    type: string
+    sql: ${TABLE}.billing_address_zip ;;
+  }
+
+  dimension: browser_ip {
+    type: string
+    sql: ${TABLE}.browser_ip ;;
+  }
+
+  dimension: cancel_reason {
+    type: string
+    sql: ${TABLE}.cancel_reason ;;
+  }
+
+  dimension_group: cancelled_timestamp {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.cancelled_timestamp ;;
+  }
+
+  dimension: cart_token {
+    type: string
+    sql: ${TABLE}.cart_token ;;
+  }
+
+  dimension: checkout_token {
+    type: string
+    sql: ${TABLE}.checkout_token ;;
+  }
+
+  dimension_group: closed_timestamp {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.closed_timestamp ;;
+  }
+
+  dimension_group: created_timestamp {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.created_timestamp ;;
+  }
+
+  dimension: currency {
+    type: string
+    sql: ${TABLE}.currency ;;
+  }
+
+  dimension: customer_id {
+    type: number
+    sql: ${TABLE}.customer_id ;;
+  }
+
+  dimension: customer_order_seq_number {
+    type: number
+    sql: ${TABLE}.customer_order_seq_number ;;
+  }
+
+  dimension: email {
+    type: string
+    sql: ${TABLE}.email ;;
+  }
+
+  dimension: financial_status {
+    type: string
+    sql: ${TABLE}.financial_status ;;
+  }
+
+  dimension: fulfillment_status {
+    type: string
+    sql: ${TABLE}.fulfillment_status ;;
+  }
+
+  dimension: has_buyer_accepted_marketing {
+    type: yesno
+    sql: ${TABLE}.has_buyer_accepted_marketing ;;
+  }
+
+  dimension: has_taxes_included {
+    type: yesno
+    sql: ${TABLE}.has_taxes_included ;;
+  }
+
+  dimension: is_test_order {
+    type: yesno
+    sql: ${TABLE}.is_test_order ;;
+  }
+
+  dimension: landing_site_base_url {
+    type: string
+    sql: ${TABLE}.landing_site_base_url ;;
+  }
+
+  dimension: line_item_count {
+    type: number
+    sql: ${TABLE}.line_item_count ;;
+  }
+
+  dimension: location_id {
+    type: number
+    sql: ${TABLE}.location_id ;;
+  }
+
+  dimension: name {
+    type: string
+    sql: ${TABLE}.name ;;
+  }
+
+  dimension: new_vs_repeat {
+    type: string
+    sql: ${TABLE}.new_vs_repeat ;;
+  }
+
+  dimension: note {
+    type: string
+    sql: ${TABLE}.note ;;
+  }
+
+  dimension: number {
+    type: number
+    sql: ${TABLE}.number ;;
+  }
+
+  dimension: order_adjusted_total {
+    type: number
+    sql: ${TABLE}.order_adjusted_total ;;
+  }
+
+  dimension: order_adjustment_amount {
+    type: number
+    sql: ${TABLE}.order_adjustment_amount ;;
+  }
+
+  dimension: order_adjustment_tax_amount {
+    type: number
+    sql: ${TABLE}.order_adjustment_tax_amount ;;
+  }
+
+  dimension: order_number {
+    type: number
+    sql: ${TABLE}.order_number ;;
+  }
+
+  dimension_group: processed_timestamp {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.processed_timestamp ;;
+  }
+
+  dimension: processing_method {
+    type: string
+    sql: ${TABLE}.processing_method ;;
+  }
+
+  dimension: referring_site {
+    type: string
+    sql: ${TABLE}.referring_site ;;
+  }
+
+  dimension: refund_subtotal {
+    type: number
+    sql: ${TABLE}.refund_subtotal ;;
+  }
+
+  dimension: refund_total_tax {
+    type: number
+    sql: ${TABLE}.refund_total_tax ;;
+  }
+
+  dimension: shipping_address_address_1 {
+    type: string
+    sql: ${TABLE}.shipping_address_address_1 ;;
+  }
+
+  dimension: shipping_address_address_2 {
+    type: string
+    sql: ${TABLE}.shipping_address_address_2 ;;
+  }
+
+  dimension: shipping_address_city {
+    type: string
+    sql: ${TABLE}.shipping_address_city ;;
+  }
+
+  dimension: shipping_address_company {
+    type: string
+    sql: ${TABLE}.shipping_address_company ;;
+  }
+
+  dimension: shipping_address_country {
+    type: string
+    sql: ${TABLE}.shipping_address_country ;;
+  }
+
+  dimension: shipping_address_country_code {
+    type: string
+    sql: ${TABLE}.shipping_address_country_code ;;
+  }
+
+  dimension: shipping_address_first_name {
+    type: string
+    sql: ${TABLE}.shipping_address_first_name ;;
+  }
+
+  dimension: shipping_address_last_name {
+    type: string
+    sql: ${TABLE}.shipping_address_last_name ;;
+  }
+
+  dimension: shipping_address_latitude {
+    type: string
+    sql: ${TABLE}.shipping_address_latitude ;;
+  }
+
+  dimension: shipping_address_longitude {
+    type: string
+    sql: ${TABLE}.shipping_address_longitude ;;
+  }
+
+  dimension: shipping_address_name {
+    type: string
+    sql: ${TABLE}.shipping_address_name ;;
+  }
+
+  dimension: shipping_address_phone {
+    type: string
+    sql: ${TABLE}.shipping_address_phone ;;
+  }
+
+  dimension: shipping_address_province {
+    type: string
+    sql: ${TABLE}.shipping_address_province ;;
+  }
+
+  dimension: shipping_address_province_code {
+    type: string
+    sql: ${TABLE}.shipping_address_province_code ;;
+  }
+
+  dimension: shipping_address_zip {
+    type: string
+    sql: ${TABLE}.shipping_address_zip ;;
+  }
+
+  dimension: shipping_cost {
+    type: number
+    sql: ${TABLE}.shipping_cost ;;
+  }
+
+  dimension: source_name {
+    type: string
+    sql: ${TABLE}.source_name ;;
+  }
+
+  dimension: source_relation {
+    type: string
+    sql: ${TABLE}.source_relation ;;
+  }
+
+  dimension: subtotal_price {
+    type: number
+    sql: ${TABLE}.subtotal_price ;;
+  }
+
+  dimension: token {
+    type: string
+    sql: ${TABLE}.token ;;
+  }
+
+  dimension: total_discounts {
+    type: number
+    sql: ${TABLE}.total_discounts ;;
+  }
+
+  dimension: total_line_items_price {
+    type: number
+    sql: ${TABLE}.total_line_items_price ;;
+  }
+
+  dimension: total_price {
+    type: number
+    sql: ${TABLE}.total_price ;;
+  }
+
+  dimension: total_shipping_price_set {
+    type: string
+    sql: ${TABLE}.total_shipping_price_set ;;
+  }
+
+  dimension: total_tax {
+    type: number
+    sql: ${TABLE}.total_tax ;;
+  }
+
+  dimension: total_weight {
+    type: number
+    sql: ${TABLE}.total_weight ;;
+  }
+
+  dimension_group: updated_timestamp {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.updated_timestamp ;;
+  }
+
+  dimension: user_id {
+    type: number
+    sql: ${TABLE}.user_id ;;
+  }
+
+  measure: count {
+    type: count
+    drill_fields: [detail*]
+  }
+
+  # ----- Sets of fields for drilling ------
+  set: detail {
+    fields: [
+      order_id,
+      shipping_address_first_name,
+      name,
+      shipping_address_name,
+      source_name,
+      shipping_address_last_name,
+      billing_address_first_name,
+      billing_address_name,
+      billing_address_last_name
+    ]
+  }
+}
