@@ -25,16 +25,4 @@ persist_with: looker_fivetran_default_datagroup
 # Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
 # Each joined view also needs to define a primary key.
 
-explore: shopify__calendar {}
-
-explore: shopify__orders {}
-
-explore: shopify__transactions {}
-
-explore: shopify__customers {}
-
-explore: shopify__order_lines {}
-
-explore: shopify__customer_cohorts {}
-
-explore: shopify__products {}
+explore: shopify_holistic_reporting__customer_enhanced {}
