@@ -75,12 +75,28 @@ view: shopify_holistic_reporting__customer_enhanced {
     sql: ${TABLE}.klaviyo_first_event_at ;;
   }
 
+  ## Measuring Email Efficacy
+
   dimension_group: first_email_to_first_purchase {
     type: duration
     sql_start: ${klaviyo_first_event_date} ;;
     sql_end: ${shopify__orders.created_timestamp_date} ;;
     intervals: [day]
   }
+
+  dimension: klaviyo_event_is_first {
+    type: yesno
+    sql: ${klaviyo_first_event_date} <= ${shopify__orders.created_timestamp_date} ;;
+  }
+
+  measure: average_days_between_email_first_purchase {
+    label: "Average Amount of Days Between Email and First Purchase"
+    type: average
+    sql: ${days_first_email_to_first_purchase} ;;
+    filters: [shopify__orders.customer_order_seq_number: "1", klaviyo_event_is_first: "yes"]
+    drill_fields: [shopify_customer_ids, klaviyo_first_event_date, shopify__orders.created_timestamp_date, days_first_email_to_first_purchase]
+  }
+  ### END
 
   dimension_group: klaviyo_first_flow_touch {
     type: time
@@ -375,6 +391,7 @@ view: shopify_holistic_reporting__customer_enhanced {
   }
 
   dimension: shopify_customer_ids {
+    primary_key: yes
     type: string
     sql: ${TABLE}.shopify_customer_ids ;;
   }
