@@ -75,6 +75,13 @@ view: shopify_holistic_reporting__customer_enhanced {
     sql: ${TABLE}.klaviyo_first_event_at ;;
   }
 
+  dimension_group: first_email_to_first_purchase {
+    type: duration
+    sql_start: ${klaviyo_first_event_date} ;;
+    sql_end: ${shopify__orders.created_timestamp_date} ;;
+    intervals: [day]
+  }
+
   dimension_group: klaviyo_first_flow_touch {
     type: time
     timeframes: [
@@ -472,4 +479,21 @@ view: shopify_holistic_reporting__customer_enhanced {
     type: count
     drill_fields: [full_name]
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

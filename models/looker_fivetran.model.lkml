@@ -25,4 +25,14 @@ persist_with: looker_fivetran_default_datagroup
 # Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
 # Each joined view also needs to define a primary key.
 
-explore: shopify_holistic_reporting__customer_enhanced {}
+
+# dbt model for klaviyo and shopify
+explore: shopify_holistic_reporting__customer_enhanced {
+  join: shopify__orders {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: CAST(${shopify__orders.customer_id} as string) = cast(${shopify_holistic_reporting__customer_enhanced.shopify_customer_ids} as string) ;;
+  }
+}
+
+explore: shopify__orders {}
