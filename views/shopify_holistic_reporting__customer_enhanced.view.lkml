@@ -467,6 +467,11 @@ view: shopify_holistic_reporting__customer_enhanced {
     sql: ${TABLE}.shopify_last_order_at ;;
   }
 
+  dimension: is_new_customer {
+    type: yesno
+    sql: ${TABLE}.shopify_last_order_at ;;
+  }
+
   dimension: shopify_lifetime_count_orders {
     type: number
     sql: ${TABLE}.shopify_lifetime_count_orders ;;
