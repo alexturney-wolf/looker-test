@@ -37,4 +37,10 @@ explore: shopify_holistic_reporting__customer_enhanced {
 
 explore: shopify__orders {}
 
-explore: klaviyo__person_campaign_flow {}
+explore: klaviyo__person_campaign_flow {
+  join: klaviyo__persons {
+    type: inner
+    relationship: one_to_one
+    sql_on: ${klaviyo__persons.person_id} = ${klaviyo__person_campaign_flow.person_id};;
+  }
+}
