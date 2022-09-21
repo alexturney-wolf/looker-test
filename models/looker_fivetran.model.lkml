@@ -36,3 +36,5 @@ explore: shopify_holistic_reporting__customer_enhanced {
 }
 
 explore: shopify__orders {}
+
+explore: klaviyo__person_campaign_flow {}
