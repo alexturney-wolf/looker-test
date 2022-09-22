@@ -443,7 +443,7 @@ view: shopify__orders {
 
   dimension: is_new_customer {
     type: yesno
-    sql: CASE WHEN %{shopify_holistic_reporting__customer_enhaced.shopify_first_order_at} = MAX(${created_timestamp_date}) THEN "yes" ELSE "no" END;;
+    sql: CASE WHEN %{shopify_holistic_reporting__customer_enhaced.shopify_first_order_at} = MIN(${created_timestamp_date}) THEN "yes" ELSE "no" END;;
   }
 
   measure: count {
