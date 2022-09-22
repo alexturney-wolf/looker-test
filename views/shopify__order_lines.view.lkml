@@ -78,6 +78,7 @@ view: shopify__order_lines {
 
   dimension: order_line_id {
     type: number
+    primary_key: yes
     sql: ${TABLE}.order_line_id ;;
   }
 
@@ -121,7 +122,7 @@ view: shopify__order_lines {
     sql: ${TABLE}.property_subscription_id ;;
   }
 
-  measure: quantity {
+  dimension: quantity {
     type: number
     sql: ${TABLE}.quantity ;;
   }
@@ -302,5 +303,10 @@ view: shopify__order_lines {
   measure: count {
     type: count
     drill_fields: [name]
+  }
+
+  measure: line_item_qty {
+    type: sum
+    sql:  ${TABLE}.quantity ;;
   }
 }
