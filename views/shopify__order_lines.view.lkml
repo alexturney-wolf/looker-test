@@ -121,7 +121,7 @@ view: shopify__order_lines {
     sql: ${TABLE}.property_subscription_id ;;
   }
 
-  dimension: quantity {
+  measure: quantity {
     type: number
     sql: ${TABLE}.quantity ;;
   }
