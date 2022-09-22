@@ -44,7 +44,7 @@ explore: shopify_holistic_reporting__orders_attribution {
   join: shopify__orders {
     type: inner
     relationship: one_to_many
-    sql_on: ${shopify__orders.name} = ${shopify_holistic_reporting__orders_attribution.name};;
+    sql_on: ${shopify__orders.order_id} = ${shopify_holistic_reporting__orders_attribution.order_id};;
   }
 }
 
