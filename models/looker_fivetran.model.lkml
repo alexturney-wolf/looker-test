@@ -55,7 +55,7 @@ explore: shopify_holistic_reporting__orders_attribution {
     sql_on: ${shopify__orders.order_id} = ${shopify_holistic_reporting__orders_attribution.order_id};;
   }
   join: shopify__order_lines {
-    type: left_outer
+    type: full_outer
     sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
     relationship: one_to_many
   }
