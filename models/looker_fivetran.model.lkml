@@ -35,20 +35,27 @@ explore: shopify_holistic_reporting__customer_enhanced {
   }
 }
 
-explore: shopify__orders {}
-
-explore: klaviyo__person_campaign_flow {
-  join: klaviyo__persons {
-    type: inner
-    relationship: one_to_one
-    sql_on: ${klaviyo__persons.person_id} = ${klaviyo__person_campaign_flow.person_id};;
-  }
+# dbt model for klaviyo and shopify
+explore: shopify_holistic_reporting__daily_customer_metrics {
 }
 
-explore: event {
-  join: klaviyo__persons {
-    type: inner
-    relationship: one_to_one
-    sql_on: ${klaviyo__persons.person_id} = ${event.person_id};;
-  }
+explore: shopify_holistic_reporting__orders_attribution {
 }
+
+# explore: shopify__orders {}
+
+# explore: klaviyo__person_campaign_flow {
+#   join: klaviyo__persons {
+#     type: inner
+#     relationship: one_to_one
+#     sql_on: ${klaviyo__persons.person_id} = ${klaviyo__person_campaign_flow.person_id};;
+#   }
+# }
+
+# explore: event {
+#   join: klaviyo__persons {
+#     type: inner
+#     relationship: one_to_one
+#     sql_on: ${klaviyo__persons.person_id} = ${event.person_id};;
+#   }
+# }
