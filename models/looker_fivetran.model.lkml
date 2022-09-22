@@ -40,6 +40,14 @@ explore: shopify_holistic_reporting__daily_customer_metrics {
 
 }
 
+explore: shopify__orders {
+  join: shopify__order_lines {
+    type: left_outer
+    sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
+    relationship: one_to_many
+  }
+}
+
 explore: shopify_holistic_reporting__orders_attribution {
   join: shopify__orders {
     type: inner
@@ -47,9 +55,6 @@ explore: shopify_holistic_reporting__orders_attribution {
     sql_on: ${shopify__orders.order_id} = ${shopify_holistic_reporting__orders_attribution.order_id};;
   }
 }
-
-explore: shopify__orders {}
-
 # explore: klaviyo__person_campaign_flow {
 #   join: klaviyo__persons {
 #     type: inner
