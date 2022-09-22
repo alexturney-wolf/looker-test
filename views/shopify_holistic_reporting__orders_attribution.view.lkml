@@ -339,6 +339,7 @@ view: shopify_holistic_reporting__orders_attribution {
 
   dimension: order_id {
     type: number
+    primary_key: yes
     sql: ${TABLE}.order_id ;;
   }
 
@@ -537,6 +538,12 @@ view: shopify_holistic_reporting__orders_attribution {
 
   measure: count {
     type: count
+    drill_fields: [detail*]
+  }
+
+  measure: sum_total_price_of_order {
+    type:  sum
+    sql: ${TABLE}.total_price ;;
     drill_fields: [detail*]
   }
 
