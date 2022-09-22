@@ -37,12 +37,18 @@ explore: shopify_holistic_reporting__customer_enhanced {
 
 # dbt model for klaviyo and shopify
 explore: shopify_holistic_reporting__daily_customer_metrics {
+
 }
 
 explore: shopify_holistic_reporting__orders_attribution {
+  join: shopify__orders {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${shopify__orders.name} = ${shopify_holistic_reporting__orders_attribution.name};;
+  }
 }
 
-# explore: shopify__orders {}
+explore: shopify__orders {}
 
 # explore: klaviyo__person_campaign_flow {
 #   join: klaviyo__persons {
