@@ -48,6 +48,8 @@ explore: shopify__orders {
   }
 }
 
+explore: shopify__transactions { }
+
 explore: shopify_holistic_reporting__orders_attribution {
   join: shopify__orders {
     type: inner
