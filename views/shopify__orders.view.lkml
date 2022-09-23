@@ -151,6 +151,7 @@ view: shopify__orders {
       year
     ]
     sql: ${TABLE}.created_timestamp ;;
+    convert_tz: yes # alex changed
   }
 
   dimension: currency {
