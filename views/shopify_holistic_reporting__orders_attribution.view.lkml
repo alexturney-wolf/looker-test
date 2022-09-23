@@ -547,7 +547,9 @@ view: shopify_holistic_reporting__orders_attribution {
         quarter,
         year
       ]
-      sql: CONVERT_TZ(${TABLE}.created_timestamp,'UTC','PST') ;;
+      sql:  ${TABLE}.created_timestamp ;;
+      convert_tz: yes
+      # sql: CONVERT_TZ(${TABLE}.created_timestamp,'UTC','PST') ;;
   }
 
   measure: count {
