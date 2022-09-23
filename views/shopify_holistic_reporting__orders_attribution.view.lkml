@@ -561,6 +561,7 @@ view: shopify_holistic_reporting__orders_attribution {
     type:  sum
     sql: ${TABLE}.total_price ;;
     drill_fields: [detail*]
+    value_format_name: usd
   }
 
   # ----- Sets of fields for drilling ------
