@@ -536,7 +536,7 @@ view: shopify_holistic_reporting__orders_attribution {
     sql: ${TABLE}.user_id ;;
   }
 
-  dimension_group: order_date {
+  dimension_group: order_created {
       type: time
       timeframes: [
         raw,
