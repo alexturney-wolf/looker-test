@@ -161,7 +161,6 @@ view: shopify_holistic_reporting__orders_attribution {
       year
     ]
     sql: ${TABLE}.created_timestamp ;;
-    convert_tz: yes # alex changed
   }
 
   dimension: currency {
@@ -549,7 +548,6 @@ view: shopify_holistic_reporting__orders_attribution {
         year
       ]
       sql: CONVERT_TZ(${TABLE}.created_timestamp,'UTC','PST') ;;
-      convert_tz: yes # alex changed
   }
 
   measure: count {
