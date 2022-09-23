@@ -271,6 +271,11 @@ view: shopify__order_lines {
     sql: ${TABLE}.variant_title ;;
   }
 
+  dimension: variant_color {
+    type:  string
+    sql: REGEXP_EXTRACT_ALL(${TABLE}.variant_title, '^([^/]*/){0}[^/]*$') ;;
+  }
+
   dimension_group: variant_updated {
     type: time
     timeframes: [
