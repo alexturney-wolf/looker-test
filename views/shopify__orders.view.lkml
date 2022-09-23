@@ -252,6 +252,7 @@ view: shopify__orders {
   dimension: order_id {
     type: number
     sql: ${TABLE}.order_id ;;
+    primary_key: yes # alex added
   }
 
   dimension: order_number {
