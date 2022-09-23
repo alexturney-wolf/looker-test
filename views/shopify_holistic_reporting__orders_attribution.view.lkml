@@ -537,6 +537,21 @@ view: shopify_holistic_reporting__orders_attribution {
     sql: ${TABLE}.user_id ;;
   }
 
+  dimension_group: order_date {
+      type: time
+      timeframes: [
+        raw,
+        time,
+        date,
+        week,
+        month,
+        quarter,
+        year
+      ]
+      sql: CONVERT_TZ(${TABLE}.created_timestamp,'UTC','PST') ;;
+      convert_tz: yes # alex changed
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
