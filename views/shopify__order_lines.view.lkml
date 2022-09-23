@@ -273,7 +273,7 @@ view: shopify__order_lines {
 
   dimension: variant_color {
     type:  string
-    sql: REGEXP_EXTRACT_ALL(${TABLE}.variant_title, '(\\w*)') ;;
+    sql: ${TABLE}.variant_title ;;
   }
 
   dimension_group: variant_updated {
