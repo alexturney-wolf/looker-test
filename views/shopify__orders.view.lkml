@@ -453,6 +453,30 @@ view: shopify__orders {
     drill_fields: [detail*]
   }
 
+  measure: total_taxes {
+    type: sum
+    sql: ${total_tax} ;;
+    value_format_name: usd
+  }
+
+  measure: total_refund {
+    type: sum
+    sql: ${refund_subtotal} ;;
+    value_format_name: usd
+  }
+
+  measure: total_refund_tax {
+    type: sum
+    sql: ${refund_total_tax} ;;
+    value_format_name: usd
+  }
+
+  measure: total_product_revenue {
+    type: sum
+    sql: ${total_line_items_price} ;;
+    value_format_name: usd
+  }
+
 
   measure: total_revenue {
     type: sum
