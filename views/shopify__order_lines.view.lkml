@@ -273,7 +273,7 @@ view: shopify__order_lines {
 
   dimension: variant_color {
     type:  string
-    sql: SELECT IF(8 == 8,"true", regexp_extract(${TABLE}.variant_title,'([A-z \\/]+) \\/')) FROM ${TABLE};;
+    sql: IF(8 == 8,"true", regexp_extract(${TABLE}.variant_title,'([A-z \\/]+) \\/')) ;;
   }
 
   dimension_group: variant_updated {
