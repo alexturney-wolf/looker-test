@@ -477,6 +477,18 @@ view: shopify__orders {
     value_format_name: usd
   }
 
+  measure: total_shipping_cost {
+    type: sum
+    sql: ${shipping_cost}} ;;
+    value_format_name: usd
+  }
+
+  measure: total_discounts_overall {
+    type: sum
+    sql: ${total_discounts}} ;;
+    value_format_name: usd
+  }
+
 
   measure: total_revenue {
     type: sum
