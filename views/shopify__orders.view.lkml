@@ -485,7 +485,7 @@ view: shopify__orders {
 
   measure: total_discounts_overall {
     type: sum
-    sql: ${total_discounts}} ;;
+    sql: ${total_discounts} ;;
     value_format_name: usd
   }
 
