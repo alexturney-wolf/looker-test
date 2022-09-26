@@ -187,6 +187,7 @@ view: shopify__transactions {
   dimension: transaction_id {
     type: number
     sql: ${TABLE}.transaction_id ;;
+    primary_key: yes
   }
 
   dimension: user_id {
