@@ -81,8 +81,13 @@ explore: shopify_holistic_reporting__orders_attribution {
   }
   join: shopify__order_lines {
     type: full_outer
-    sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
     relationship: one_to_many
+    sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
+  }
+  join: inventory_level {
+    type: left_outer
+    relationship:  one_to_many
+    sql_on:  ${inventory_level.inventory_item_id} = ${shopify__order_lines.inventory_item_id} ;;
   }
 }
 
