@@ -195,6 +195,11 @@ view: shopify__transactions {
     sql: ${TABLE}.user_id ;;
   }
 
+  dimension: is_return {
+    type:  string
+    sql: IF(${TABLE}.refund_id = null,"yes", "no");;
+  }
+
   measure: count {
     type: count
     drill_fields: [source_name]
