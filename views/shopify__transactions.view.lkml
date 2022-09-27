@@ -197,7 +197,7 @@ view: shopify__transactions {
 
   dimension: is_return {
     type:  string
-    sql: IF(CAST(${TABLE}.refund_id AS STRING) != "","return", IF(${TABLE}.source_name = "web","web sale","other");;
+    sql: IF(CAST(${TABLE}.refund_id AS STRING) != "","return", IF(${TABLE}.source_name = "web","web sale","other"));;
   }
 
   measure: count {
