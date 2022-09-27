@@ -24,12 +24,14 @@ view: inventory_level {
   dimension: inventory_item_id {
     type: number
     sql: ${TABLE}.inventory_item_id ;;
+    primary_key: yes
   }
 
   dimension: location_id {
     type: number
     # hidden: yes
     sql: ${TABLE}.location_id ;;
+    primary_key: yes
   }
 
   dimension_group: updated {
