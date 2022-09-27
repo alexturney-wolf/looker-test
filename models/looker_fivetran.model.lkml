@@ -65,6 +65,14 @@ explore: shopify__transactions {
   }
 }
 
+explore: inventory_level {
+  join: location {
+    type:  left_outer
+    sql_on:  ${inventory_level.location_id} = ${location.id} ;;
+    relationship:  one_to_many
+  }
+}
+
 explore: shopify_holistic_reporting__orders_attribution {
   join: shopify__orders {
     type: inner
@@ -77,6 +85,9 @@ explore: shopify_holistic_reporting__orders_attribution {
     relationship: one_to_many
   }
 }
+
+
+
 # explore: klaviyo__person_campaign_flow {
 #   join: klaviyo__persons {
 #     type: inner
