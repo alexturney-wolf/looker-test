@@ -40,6 +40,10 @@ explore: shopify_holistic_reporting__daily_customer_metrics {
 
 }
 
+explore: shopify__products {
+
+}
+
 explore: shopify__orders {
   join: shopify__order_lines {
     type: left_outer
