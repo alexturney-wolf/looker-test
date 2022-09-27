@@ -50,16 +50,6 @@ explore: shopify__orders {
     sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
     relationship: one_to_many
   }
-  join: inventory_level {
-    type: left_outer
-    relationship:  one_to_many
-    sql_on:  ${inventory_level.inventory_item_id} = ${shopify__order_lines.inventory_item_id} ;;
-  }
-  join: location {
-    type:  left_outer
-    sql_on:  ${inventory_level.location_id} = ${location.id} ;;
-    relationship:  one_to_many
-  }
 }
 
 explore: shopify__transactions {

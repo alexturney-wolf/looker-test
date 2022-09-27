@@ -53,8 +53,4 @@ view: inventory_level {
     drill_fields: [location.localized_country_name, location.localized_province_name, location.country_name, location.name, location.id]
   }
 
-  measure: total_inv_by_id {
-    type: sum
-    sql: ${TABLE}.available ;;
-  }
 }
