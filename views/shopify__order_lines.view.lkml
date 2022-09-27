@@ -314,4 +314,9 @@ view: shopify__order_lines {
     type: sum
     sql:  ${TABLE}.quantity ;;
   }
+
+  measure: total_inventory_quantity {
+    type: sum
+    sql: ${TABLE}.variant_inventory_quantity ;;
+  }
 }
