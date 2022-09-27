@@ -25,6 +25,14 @@ persist_with: looker_fivetran_default_datagroup
 # Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
 # Each joined view also needs to define a primary key.
 
+explore: inventory_level {
+  join: location {
+    type:  left_outer
+    sql_on:  ${inventory_level.location_id} = ${location.id} ;;
+    relationship:  one_to_many
+  }
+}
+
 
 # dbt model for klaviyo and shopify
 explore: shopify_holistic_reporting__customer_enhanced {
@@ -50,6 +58,11 @@ explore: shopify__orders {
     sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
     relationship: one_to_many
   }
+  join: inventory_level {
+    type: left_outer
+    relationship:  one_to_many
+    sql_on:  ${inventory_level.inventory_item_id} = ${shopify__order_lines.inventory_item_id} ;;
+  }
 }
 
 explore: shopify__transactions {
@@ -65,14 +78,6 @@ explore: shopify__transactions {
   }
 }
 
-explore: inventory_level {
-  join: location {
-    type:  left_outer
-    sql_on:  ${inventory_level.location_id} = ${location.id} ;;
-    relationship:  one_to_many
-  }
-}
-
 explore: shopify_holistic_reporting__orders_attribution {
   join: shopify__orders {
     type: inner
@@ -83,11 +88,6 @@ explore: shopify_holistic_reporting__orders_attribution {
     type: full_outer
     relationship: one_to_many
     sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
-  }
-  join: inventory_level {
-    type: left_outer
-    relationship:  one_to_many
-    sql_on:  ${inventory_level.inventory_item_id} = ${shopify__order_lines.inventory_item_id} ;;
   }
 }
 
