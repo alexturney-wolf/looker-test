@@ -55,6 +55,6 @@ view: inventory_level {
 
   measure: total_inv_by_id {
     type: sum
-    sql: {TABLE}.available ;;
+    sql: ${TABLE}.available ;;
   }
 }
