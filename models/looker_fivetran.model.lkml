@@ -55,7 +55,7 @@ explore: shopify__orders {
     sql_on: ${shopify__orders.order_id} = ${order_tag.order_id} ;;
     relationship: one_to_many
   }
-  sql_always_where: ((order_tag.value ) <> 'wholesale' OR (order_tag.value ) IS NULL);;
+  sql_always_where: (${order_tag.value} <> 'wholesale' OR ${order_tag.value} IS NULL);;
 }
 
 explore: shopify__transactions {
