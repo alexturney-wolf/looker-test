@@ -52,7 +52,8 @@ explore: shopify__orders {
   }
   join: order_tag {
     type:  left_outer
-    sql_on:  ${shopify__orders.order_id} = ${order_tag.order_id} ;;
+    sql:  LEFT JOIN UNNEST(SPLIT(${order_tag.value},'|')) as tag
+    sql_where: ${order_tag.order_id} = ${shopify__orders.order_id} ;;
     relationship: one_to_many
   }
 }
