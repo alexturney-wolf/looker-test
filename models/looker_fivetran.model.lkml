@@ -45,9 +45,15 @@ explore: shopify__products {
 }
 
 explore: shopify__orders {
+  sql_always_having: ${order_tag.value} <> "wholesale" ;;
   join: shopify__order_lines {
     type: left_outer
     sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
+    relationship: one_to_many
+  }
+  join: order_tag {
+    type:  left_outer
+    sql_on: ${order_tag.order_id} = ${shopify__orders.order_id} ;;
     relationship: one_to_many
   }
 }
