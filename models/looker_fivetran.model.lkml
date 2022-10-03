@@ -50,6 +50,11 @@ explore: shopify__orders {
     sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
     relationship: one_to_many
   }
+  join: order_tag {
+    type:  left_outer
+    sql_on:  ${shopify__orders.order_id} = ${order_tag.order_id} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: shopify__transactions {
