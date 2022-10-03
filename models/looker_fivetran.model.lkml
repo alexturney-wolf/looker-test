@@ -53,7 +53,6 @@ explore: shopify__orders {
   join: order_tag {
     type:  left_outer
     sql_on: ${order_tag.order_id} = ${shopify__orders.order_id} ;;
-    sql_where: ${order_tag.value} <> "wholesale";;
     relationship: one_to_many
   }
 }
