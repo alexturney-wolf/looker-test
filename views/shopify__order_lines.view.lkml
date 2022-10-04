@@ -320,7 +320,7 @@ view: shopify__order_lines {
     sql: ${TABLE}.variant_inventory_quantity ;;
   }
 
-  measure: subtotal_minus_discounts {
+  dimension: subtotal_minus_discounts {
     type: number
     sql: ${TABLE}.subtotal_net_refunds - ${TABLE}.total_discount ;;
   }
