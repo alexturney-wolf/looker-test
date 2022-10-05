@@ -33,6 +33,12 @@ view: order_tag {
     sql: ${TABLE}.value ;;
   }
 
+  measure: list_test {
+    type: list
+    list_field: value
+    sql_distinct_key: ${order_id} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
