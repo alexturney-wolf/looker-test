@@ -33,12 +33,6 @@ view: order_tag {
     sql: ${TABLE}.value ;;
   }
 
-  dimension: field_name {
-    type: string
-    sql:  (SELECT STRING_AGG(values) AS string_agg
-FROM UNNEST([NULL, "narvar_returns", "wholesale"]) AS values)  ;;
-  }
-
   measure: count {
     type: count
     drill_fields: []
