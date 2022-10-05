@@ -36,7 +36,7 @@ view: order_tag {
   dimension: field_name {
     type: string
     sql:  (SELECT STRING_AGG(values) AS string_agg
-FROM UNNEST(${TABLE}.value) AS values)  ;;
+FROM UNNEST([NULL, "narvar_returns", "wholesale"]) AS values)  ;;
   }
 
   measure: count {
