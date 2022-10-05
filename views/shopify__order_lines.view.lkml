@@ -74,6 +74,7 @@ view: shopify__order_lines {
   dimension: order_id {
     type: number
     sql: ${TABLE}.order_id ;;
+    value_format: "0"
   }
 
   dimension: order_line_id {
