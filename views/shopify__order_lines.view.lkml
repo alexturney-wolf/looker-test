@@ -315,11 +315,6 @@ view: shopify__order_lines {
     sql:  ${TABLE}.quantity ;;
   }
 
-  measure: total_inventory_quantity {
-    type: sum
-    sql: ${TABLE}.variant_inventory_quantity ;;
-  }
-
   dimension: subtotal_minus_discounts {
     type: number
     sql: ${TABLE}.subtotal_net_refunds - ${TABLE}.total_discount ;;
