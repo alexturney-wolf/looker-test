@@ -33,6 +33,11 @@ view: order_tag {
     sql: ${TABLE}.value ;;
   }
 
+  dimension: field_name {
+    type: string
+    sql:  group_concat(${TABLE}.value)  ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
