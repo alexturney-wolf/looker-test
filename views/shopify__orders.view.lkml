@@ -253,11 +253,14 @@ view: shopify__orders {
     type: number
     sql: ${TABLE}.order_id ;;
     primary_key: yes # alex added
+    value_format_name: id
+
   }
 
   dimension: order_number {
     type: number
     sql: ${TABLE}.order_number ;;
+    value_format_name: id
   }
 
   dimension_group: processed_timestamp {
