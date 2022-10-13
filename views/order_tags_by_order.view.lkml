@@ -23,14 +23,15 @@ view: order_tags_by_order {
   dimension: order_tag_order_id {
     type: number
     sql: ${TABLE}.order_tag_order_id ;;
+    primary_key: yes
   }
 
-  dimension: order_tag_list_test {
+  dimension: order_tags {
     type: string
     sql: ${TABLE}.order_tag_list_test ;;
   }
 
   set: detail {
-    fields: [order_tag_order_id, order_tag_list_test]
+    fields: [order_tag_order_id, order_tags]
   }
 }
