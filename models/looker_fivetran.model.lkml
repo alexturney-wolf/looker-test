@@ -42,8 +42,12 @@ explore: shopify_holistic_reporting__daily_customer_metrics {
 
 explore: shopify__products {}
 explore: shopify__order_lines {}
+explore: og_orders {
+  from: shopify__orders
+}
 
 explore: shopify__orders {
+  label: "joined_orders"
   join: shopify__order_lines {
     type: left_outer
     sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
