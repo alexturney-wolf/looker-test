@@ -25,7 +25,7 @@ view: order_tag {
   dimension: order_id {
     type: number
     sql: ${TABLE}.order_id ;;
-    value_format_name: decimal_0
+    value_format_name: id
     primary_key: yes
   }
 
