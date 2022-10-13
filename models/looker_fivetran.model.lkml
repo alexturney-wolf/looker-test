@@ -66,8 +66,8 @@ explore: shopify__orders {
 
 explore: shopify__transactions {
   join: shopify__orders {
-    type: left_outer
-    relationship: one_to_one
+    type: full_outer
+    relationship: many_to_one
     sql_on: ${shopify__orders.order_id} = ${shopify__transactions.order_id};;
   }
   join: shopify__order_lines {
