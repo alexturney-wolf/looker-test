@@ -59,20 +59,21 @@ explore: shopify__orders {
 
 explore: shopify__transactions {
   join: shopify__orders {
-    type: inner
+    type: left_outer
     relationship: one_to_one
     sql_on: ${shopify__orders.order_id} = ${shopify__transactions.order_id};;
   }
   join: shopify__order_lines {
-    type: full_outer
+    type: left_outer
     sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
     relationship: one_to_many
   }
-  join: order_tags_by_order {
-    type:  left_outer
-    sql_on: ${shopify__orders.order_id} = ${order_tags_by_order.order_tag_order_id} ;;
-    relationship: one_to_one
-  }
+  # join: order_tags_by_order {
+  #   type:  left_outer
+  #   sql_on: ${shopify__orders.order_id} = ${order_tags_by_order.order_tag_order_id} ;;
+  #   relationship: one_to_one
+  # }
+  # sql_always_where: (${order_tags_by_order.order_tags} <> 'wholesale' OR ${order_tags_by_order.order_tags} IS NULL);;
 }
 
 explore: shopify_holistic_reporting__orders_attribution {
