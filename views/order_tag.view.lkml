@@ -36,7 +36,7 @@ view: order_tag {
   measure: list_test {
     type: list
     list_field: value
-    sql_distinct_key: ${order_id} ;;
+    sql_distinct_key: ${index} ;;
   }
 
   measure: count {
