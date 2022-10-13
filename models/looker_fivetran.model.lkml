@@ -73,7 +73,6 @@ explore: shopify__transactions {
     sql_on: ${shopify__orders.order_id} = ${order_tags_by_order.order_tag_order_id} ;;
     relationship: one_to_one
   }
-  sql_always_where: (${order_tags_by_order.order_tags} <> 'wholesale' OR ${order_tags_by_order.order_tags} IS NULL);;
 }
 
 explore: shopify_holistic_reporting__orders_attribution {
