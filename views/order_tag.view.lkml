@@ -23,8 +23,9 @@ view: order_tag {
   }
 
   dimension: order_id {
-    type: string
+    type: number
     sql: ${TABLE}.order_id ;;
+    value_format_name: decimal_0
     primary_key: yes
   }
 
