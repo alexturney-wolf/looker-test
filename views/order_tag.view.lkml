@@ -23,7 +23,7 @@ view: order_tag {
   }
 
   dimension: order_id {
-    type: number
+    type: string
     sql: ${TABLE}.order_id ;;
     primary_key: yes
   }
