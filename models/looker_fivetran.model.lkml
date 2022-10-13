@@ -45,6 +45,9 @@ explore: shopify__order_lines {}
 explore: og_orders {
   from: shopify__orders
 }
+explore: og_transactions {
+  from: shopify__transactions
+}
 
 explore: shopify__orders {
   label: "joined_orders"
