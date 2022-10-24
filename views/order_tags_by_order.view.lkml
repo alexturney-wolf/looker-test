@@ -30,6 +30,17 @@ view: order_tags_by_order {
     sql: ${TABLE}.order_tag_list_test ;;
   }
 
+  dimension: is_preorder {
+    case: {
+      when: {
+        sql: CONTAINS_SUBSTR(${TABLE}.order_tag_list_test,'pre-order')  ;;
+        label: "Yes"
+      }
+      # possibly more when statements
+      else: "No"
+    }
+  }
+
   set: detail {
     fields: [order_tag_order_id, order_tags]
   }
