@@ -33,7 +33,7 @@ view: order_tags_by_order {
   dimension: is_preorder {
     case: {
       when: {
-        sql: CONTAINS_SUBSTR(${TABLE}.order_tag_list_test,'preorder') OR CONTAINS_SUBSTR(${TABLE}.order_tag_list_test,'Pre-Order') OR CONTAINS_SUBSTR(${TABLE}.order_tag_list_test,'pre-order')  ;;
+        sql: CONTAINS_SUBSTR(${TABLE}.order_tag_list_test,'pre-order');;
         label: "Yes"
       }
       # possibly more when statements
