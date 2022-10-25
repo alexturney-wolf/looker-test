@@ -49,21 +49,6 @@ explore: shopify_holistic_reporting__daily_customer_metrics {
 #   from: shopify__transactions
 # }
 
-explore: shopify__orders {
-  label: "joined_orders"
-  join: shopify__order_lines {
-    type: left_outer
-    sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
-    relationship: one_to_many
-  }
-  join: order_tag {
-    type:  left_outer
-    sql_on: ${shopify__orders.order_id} = ${order_tag.order_id} ;;
-    relationship: one_to_many
-  }
-  sql_always_where: (${order_tag.value} <> 'wholesale' OR ${order_tag.value} IS NULL);;
-}
-
 explore: shopify__transactions {
   label: "W&S Master Orders"
   join: shopify__orders {
