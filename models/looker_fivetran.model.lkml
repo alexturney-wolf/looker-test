@@ -40,7 +40,7 @@ explore: shopify_holistic_reporting__daily_customer_metrics {
 
 }
 
-# explore: shopify__products {}
+# explore: shopify__customers {}
 # explore: shopify__order_lines {}
 # explore: og_orders {
 #   from: shopify__orders
@@ -55,6 +55,11 @@ explore: shopify__transactions {
     type: full_outer
     relationship: many_to_one
     sql_on: ${shopify__orders.order_id} = ${shopify__transactions.order_id};;
+  }
+  join: shopify__customers {
+    type:  left_outer
+    relationship: many_to_many
+    sql_on: ${shopify__orders.customer_id} = ${shopify__customers.customer_id} ;;
   }
   join: shopify__order_lines {
     type: left_outer
