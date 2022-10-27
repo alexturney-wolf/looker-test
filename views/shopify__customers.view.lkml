@@ -154,7 +154,7 @@ view: shopify__customers {
 
   measure: customer_count {
     type: count
-    drill_fields: [customer_id]
-    #drill_fields: [last_name, first_name]
+    drill_fields: [last_name, first_name]
   }
+
 }
