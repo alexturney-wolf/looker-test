@@ -152,8 +152,9 @@ view: shopify__customers {
     sql: ${TABLE}.updated_timestamp ;;
   }
 
-  measure: count {
+  measure: customer_count {
     type: count
-    drill_fields: [last_name, first_name]
+    drill_fields: [customer_id]
+    #drill_fields: [last_name, first_name]
   }
 }
