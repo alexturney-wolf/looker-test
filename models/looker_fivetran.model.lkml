@@ -48,6 +48,25 @@ explore: shopify_holistic_reporting__daily_customer_metrics {
 # explore: og_transactions {
 #   from: shopify__transactions
 # }
+explore: product {
+  label: "W&S Inventory"
+  join: product_variant {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${product.id} = ${product_variant.product_id};;
+  }
+  join: inventory_item {
+    type: left_outer
+    relationship: one_to_one
+    sql_on: ${product_variant.inventory_item_id} = ${inventory_item.id};;
+  }
+  join: inventory_level {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${inventory_item.id} = ${inventory_level.inventory_item_id};;
+  }
+}
+
 
 explore: shopify__transactions {
   label: "W&S Master Orders"
