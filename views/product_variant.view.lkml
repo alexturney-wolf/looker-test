@@ -178,6 +178,11 @@ view: product_variant {
     sql: ${TABLE}.weight_unit ;;
   }
 
+  dimension: variant_color {
+    type:  string
+    sql: IF(REGEXP_CONTAINS(${TABLE}.title, '[A-z \\/]+ \\/'),regexp_extract(${TABLE}.title,'([A-z \\/]+) \\/'), regexp_extract(${TABLE}.title,'([A-z]+)') ) ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, inventory_item.id, product.id]
