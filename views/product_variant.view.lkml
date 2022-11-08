@@ -183,6 +183,11 @@ view: product_variant {
     sql: IF(REGEXP_CONTAINS(${TABLE}.title, '[A-z \\/]+ \\/'),regexp_extract(${TABLE}.title,'([A-z \\/]+) \\/'), regexp_extract(${TABLE}.title,'([A-z]+)') ) ;;
   }
 
+  measure: inv {
+    type: sum
+    sql: ${inventory_quantity} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, inventory_item.id, product.id]
