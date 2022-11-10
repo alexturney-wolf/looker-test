@@ -84,6 +84,11 @@ explore: shopify__transactions {
     relationship: many_to_many
     sql_on: ${shopify__orders.customer_id} = ${shopify__customers.customer_id} ;;
   }
+  join: first_order_date {
+    type:  left_outer
+    relationship: many_to_one
+    sql_on: ${shopify__customers.email} = ${first_order_date.email} ;;
+  }
   join: shopify__order_lines {
     type: left_outer
     sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
