@@ -157,4 +157,9 @@ view: shopify__customers {
     drill_fields: [last_name, first_name]
   }
 
+  measure: real_first_order_date{
+    type: date
+    sql: MIN(${first_order_timestamp_date}) ;;
+  }
+
 }
