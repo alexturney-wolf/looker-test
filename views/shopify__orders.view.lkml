@@ -494,7 +494,7 @@ view: shopify__orders {
 
   measure: subtotal_minus_discount {
     type: number
-    sql: ${subtotal_price} - ${refund_subtotal} ;;
+    sql: ${subtotal_price} - IF(${refund_subtotal},${refund_subtotal},0) ;;
     value_format_name: usd
   }
 
