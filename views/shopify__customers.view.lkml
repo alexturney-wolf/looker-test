@@ -158,7 +158,7 @@ view: shopify__customers {
   }
 
   measure: real_first_order_date{
-    type: time
+    type: string
     sql: MIN(${first_order_timestamp_date}) ;;
   }
 
