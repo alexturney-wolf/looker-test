@@ -2,14 +2,10 @@ view: first_order_date {
     derived_table: {
       sql: SELECT
           shopify__customers.customer_id  AS id,
-          shopify__customers.email  AS email,
+          shopify__customers.email AS email,
           shopify__customers.first_order_timestamp AS first_order_timestamp
       FROM `fivetran-wolf-and-shepher-osfl.prod_schema_shopify.shopify__customers`
            AS shopify__customers
-      GROUP BY
-          1
-      ORDER BY
-          2 DESC
        ;;
     }
 
