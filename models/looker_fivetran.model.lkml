@@ -40,6 +40,10 @@ explore: shopify_holistic_reporting__daily_customer_metrics {
 
 }
 
+explore: first_order_date {
+
+}
+
 # explore: shopify__customers {}
 # explore: shopify__order_lines {}
 # explore: og_orders {
