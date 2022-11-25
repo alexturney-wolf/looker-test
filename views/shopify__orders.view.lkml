@@ -494,7 +494,7 @@ view: shopify__orders {
 
   measure: product_rev_minus_discounts {
     type: number
-    sql: ${subtotal_price} - IFNULL(${total_discounts}, 0) ;;
+    sql: ${total_product_revenue} - IFNULL(${total_discounts_overall}, 0) ;;
     value_format_name: usd
   }
 
