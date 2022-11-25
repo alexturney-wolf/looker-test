@@ -494,7 +494,7 @@ view: shopify__orders {
 
   measure: total_subtotal {
     type: sum
-    sql: ${subtotal_price}) ;;
+    sql: ${subtotal_price} ;;
     value_format_name: usd
   }
 
