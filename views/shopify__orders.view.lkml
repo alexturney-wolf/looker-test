@@ -492,6 +492,12 @@ view: shopify__orders {
     value_format_name: usd
   }
 
+  measure: total_subtotal {
+    type: sum
+    sql: ${subtotal_price}) ;;
+    value_format_name: usd
+  }
+
   measure: product_rev_minus_discounts {
     type: number
     sql: ${total_product_revenue} - IFNULL(${total_discounts_overall}, 0) ;;
