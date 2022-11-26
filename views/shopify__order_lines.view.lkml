@@ -316,8 +316,8 @@ view: shopify__order_lines {
     sql:  ${TABLE}.quantity ;;
   }
 
-  dimension: subtotal_minus_discounts {
+  dimension: price_minuss_discounts {
     type: number
-    sql: ${TABLE}.subtotal_net_refunds - ${TABLE}.total_discount ;;
+    sql: ${TABLE}.variant_price - ${TABLE}.total_discount ;;
   }
 }
