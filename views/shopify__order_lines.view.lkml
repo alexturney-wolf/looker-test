@@ -328,7 +328,7 @@ view: shopify__order_lines {
 
   measure: total_markdown {
     type: sum
-    sql:  ${TABLE}.markdown_amount ;;
+    sql:  ${markdown_amount} ;;
   }
 
   dimension: price_minuss_discounts {
