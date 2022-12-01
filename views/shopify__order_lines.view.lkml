@@ -277,6 +277,11 @@ view: shopify__order_lines {
     sql: IF(REGEXP_CONTAINS(${TABLE}.variant_title, '[A-z \\/]+ \\/'),regexp_extract(${TABLE}.variant_title,'([A-z \\/]+) \\/'), regexp_extract(${TABLE}.variant_title,'([A-z]+)') ) ;;
   }
 
+  dimension: is_markdown {
+    type:  string
+    sql: IF(IFNULL(${variant_compare_at_price},${variant_price}) > ${variant_price},"YES","NO");;
+  }
+
   dimension_group: variant_updated {
     type: time
     timeframes: [
