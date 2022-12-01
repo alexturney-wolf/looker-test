@@ -285,6 +285,8 @@ view: shopify__order_lines {
   dimension: markdown_amount {
     type:  number
     sql: IF(IFNULL(${variant_compare_at_price},0)=0,0,${variant_price} - ${variant_compare_at_price});;
+    value_format_name: usd
+
   }
 
   dimension_group: variant_updated {
@@ -329,6 +331,7 @@ view: shopify__order_lines {
   measure: total_markdown {
     type: sum
     sql:  ${markdown_amount} ;;
+    value_format_name: usd
   }
 
   dimension: price_minuss_discounts {
