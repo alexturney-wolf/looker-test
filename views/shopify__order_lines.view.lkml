@@ -287,7 +287,6 @@ view: shopify__order_lines {
     sql: IF(IFNULL(${variant_compare_at_price},0)=0,0,${variant_price} - ${variant_compare_at_price});;
   }
 
-
   dimension_group: variant_updated {
     type: time
     timeframes: [
@@ -325,6 +324,11 @@ view: shopify__order_lines {
   measure: line_item_qty {
     type: sum
     sql:  ${TABLE}.quantity ;;
+  }
+
+  measure: total_markdown {
+    type: sum
+    sql:  ${TABLE}.markdown_amount ;;
   }
 
   dimension: price_minuss_discounts {
