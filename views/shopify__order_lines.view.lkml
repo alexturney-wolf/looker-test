@@ -282,6 +282,12 @@ view: shopify__order_lines {
     sql: IF(IFNULL(${variant_compare_at_price},${variant_price}) > ${variant_price},"YES","NO");;
   }
 
+  dimension: markdown_amount {
+    type:  number
+    sql: IF(IFNULL(${variant_compare_at_price},0)=0,0,${variant_price} - ${variant_compare_at_price});;
+  }
+
+
   dimension_group: variant_updated {
     type: time
     timeframes: [
