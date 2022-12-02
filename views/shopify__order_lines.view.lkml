@@ -346,13 +346,13 @@ view: shopify__order_lines {
 
   measure: product_revenue {
     type: sum
-    sql: ${price} ;;
+    sql: ${TABLE}.price ;;
     value_format_name: usd
   }
 
   measure: line_item_discounts {
     type: sum
-    sql: ${total_discount} ;;
+    sql: ${TABLE}.total_discount ;;
     value_format_name: usd
   }
 }
