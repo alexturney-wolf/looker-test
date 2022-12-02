@@ -343,4 +343,9 @@ view: shopify__order_lines {
     type: number
     sql: ${TABLE}.price - ${TABLE}.total_discount ;;
   }
+
+  dimension: line_item_discounts {
+    type: number
+    sql: ${total_discount} ;;
+  }
 }
