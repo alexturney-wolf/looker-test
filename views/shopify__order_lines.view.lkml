@@ -279,12 +279,12 @@ view: shopify__order_lines {
 
   dimension: is_markdown {
     type:  string
-    sql: IF(IFNULL(${variant_compare_at_price},${variant_price}) > ${variant_price},"YES","NO");;
+    sql: IF(IFNULL(${variant_compare_at_price},${price}) > ${price},"YES","NO");;
   }
 
   dimension: markdown_amount {
     type:  number
-    sql: IF(IFNULL(${variant_compare_at_price},0)=0,0,${variant_price} - ${variant_compare_at_price});;
+    sql: IF(IFNULL(${variant_compare_at_price},0)=0,0,${price} - ${price});;
     value_format_name: usd
 
   }
@@ -336,6 +336,6 @@ view: shopify__order_lines {
 
   dimension: price_minuss_discounts {
     type: number
-    sql: ${TABLE}.variant_price - ${TABLE}.total_discount ;;
+    sql: ${TABLE}.price - ${TABLE}.total_discount ;;
   }
 }
