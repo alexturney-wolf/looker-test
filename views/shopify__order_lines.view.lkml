@@ -284,7 +284,7 @@ view: shopify__order_lines {
 
   dimension: markdown_amount {
     type:  number
-    sql: IF(IFNULL(${variant_compare_at_price},0)=0,0,${price} - ${price});;
+    sql: IF(IFNULL(${variant_compare_at_price},0)=0,0,${variant_compare_at_price} - ${price});;
     value_format_name: usd
 
   }
