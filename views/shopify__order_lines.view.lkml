@@ -322,6 +322,11 @@ view: shopify__order_lines {
     drill_fields: [name]
   }
 
+  measure: count_orders {
+    type: number
+    sql: COUNT(${order_id}) ;;
+  }
+
   measure: line_item_qty {
     type: sum
     sql:  ${TABLE}.quantity ;;
