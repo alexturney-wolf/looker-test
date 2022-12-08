@@ -323,7 +323,7 @@ view: shopify__order_lines {
   }
 
   measure: count_orders {
-    type: number
+    type: count_distinct
     sql: COUNT(${order_id}) ;;
   }
 
