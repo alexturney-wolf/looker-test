@@ -324,7 +324,7 @@ view: shopify__order_lines {
 
   measure: count_orders {
     type: number
-    sql: count_distinct(${order_id}) ;;
+    sql: COUNT(DISTINCT(${order_id})) ;;
   }
 
   measure: line_item_qty {
