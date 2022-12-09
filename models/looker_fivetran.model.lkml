@@ -94,6 +94,11 @@ explore: shopify__transactions {
     sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
     relationship: one_to_many
   }
+  join: shopify__products {
+    type:  left_outer
+    sql_on: ${shopify__order_lines.product_id} = ${shopify__products.product_id} ;;
+    relationship:  many_to_one
+  }
   join: order_tags_by_order {
     type:  left_outer
     sql_on: ${shopify__orders.order_id} = ${order_tags_by_order.order_tag_order_id} ;;
