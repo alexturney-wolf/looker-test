@@ -493,6 +493,11 @@ view: shopify__orders {
     value_format_name: usd
   }
 
+  measure: total_units {
+    type: sum
+    sql: ${line_item_count} ;;
+  }
+
   measure: product_rev_minus_discounts {
     type: number
     sql: ${total_product_revenue} - IFNULL(${total_discounts_overall}, 0) ;;
