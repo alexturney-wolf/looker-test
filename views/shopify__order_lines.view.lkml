@@ -324,7 +324,7 @@ view: shopify__order_lines {
 
   measure: order_count {
     type: number
-    sql: COUNT(distinct ${order_id})) ;;
+    sql: COUNT(distinct ${order_id}) ;;
   }
 
   measure: line_item_qty {
@@ -345,7 +345,7 @@ view: shopify__order_lines {
   }
 
   measure: price_minus_discounts {
-    type: number
+    type: sum
     sql: ${TABLE}.price - ${TABLE}.total_discount ;;
   }
 
