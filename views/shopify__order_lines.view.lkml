@@ -322,9 +322,9 @@ view: shopify__order_lines {
     drill_fields: [name]
   }
 
-  measure: count_orders {
+  measure: order_count {
     type: number
-    sql: COUNT(DISTINCT(${order_id})) ;;
+    sql: COUNT(distinct ${order_id})) ;;
   }
 
   measure: line_item_qty {
