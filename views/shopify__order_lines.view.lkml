@@ -344,7 +344,7 @@ view: shopify__order_lines {
     value_format_name: usd
   }
 
-  dimension: price_minus_discounts {
+  measure: price_minus_discounts {
     type: number
     sql: ${TABLE}.price - ${TABLE}.total_discount ;;
   }
