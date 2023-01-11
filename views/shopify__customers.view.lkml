@@ -158,9 +158,10 @@ view: shopify__customers {
   }
 
   measure: email_count {
-    type: count
-    drill_fields: [email]
+    type: number
+    sql: COUNT(distinct ${email}) ;;
   }
+
 
   measure: real_first_order_date{
     type: string
