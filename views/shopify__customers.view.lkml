@@ -157,6 +157,11 @@ view: shopify__customers {
     drill_fields: [last_name, first_name]
   }
 
+  measure: email_count {
+    type: count
+    drill_fields: [email]
+  }
+
   measure: real_first_order_date{
     type: string
     sql: MIN(${first_order_timestamp_date}) ;;
