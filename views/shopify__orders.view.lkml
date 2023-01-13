@@ -446,6 +446,13 @@ view: shopify__orders {
     sql: ${TABLE}.user_id ;;
   }
 
+  # custom - START
+  dimension: subtotal_after_refunds {
+    type: number
+    sql: ${subtotal_price} - ${refund_subtotal} ;;
+  }
+  # custom - END
+
   measure: count {
     type: count
     drill_fields: [detail*]
