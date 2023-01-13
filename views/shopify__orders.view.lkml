@@ -449,7 +449,7 @@ view: shopify__orders {
   # custom - START
   dimension: subtotal_after_refunds {
     type: number
-    sql: ${subtotal_price} - ${refund_subtotal} ;;
+    sql: ${subtotal_price} - IFNULL(${refund_subtotal}, 0) ;;
   }
   # custom - END
 
