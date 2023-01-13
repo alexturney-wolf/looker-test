@@ -35,9 +35,8 @@ explore: shopify_holistic_reporting__customer_enhanced {
   }
 }
 
-# dbt model for klaviyo and shopify
-explore: shopify_holistic_reporting__daily_customer_metrics {
-
+explore: shopify__customer_cohorts {
+  label: "Customer Cohorts"
 }
 
 explore: first_order_date {
