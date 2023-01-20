@@ -21,70 +21,19 @@ view: ip_targets_style {
     sql: ${TABLE}._row ;;
   }
 
-  dimension: crossover_golf {
-    type: number
-    sql: ${TABLE}.crossover_golf ;;
+  dimension: date {
+    type: string
+    sql: ${TABLE}.date ;;
   }
 
-  dimension: crossover_hiker_wtz {
-    type: number
-    sql: ${TABLE}.crossover_hiker_wtz ;;
+  dimension: style {
+    type: string
+    sql: ${TABLE}.style ;;
   }
 
-  dimension: crossover_loafer {
+  dimension: target {
     type: number
-    sql: ${TABLE}.crossover_loafer ;;
-  }
-
-  dimension: crossover_longwing {
-    type: number
-    sql: ${TABLE}.crossover_longwing ;;
-  }
-
-  dimension: crossover_longwing_wtz {
-    type: number
-    sql: ${TABLE}.crossover_longwing_wtz ;;
-  }
-
-  dimension: crossover_mid {
-    type: number
-    value_format_name: id
-    sql: ${TABLE}.crossover_mid ;;
-  }
-
-  dimension: crossover_mid_wtz {
-    type: number
-    sql: ${TABLE}.crossover_mid_wtz ;;
-  }
-
-  dimension: crossover_trainer_wtz {
-    type: number
-    sql: ${TABLE}.crossover_trainer_wtz ;;
-  }
-
-  dimension: crossover_victory_trainer {
-    type: number
-    sql: ${TABLE}.crossover_victory_trainer ;;
-  }
-
-  dimension: monaco_loafer {
-    type: number
-    sql: ${TABLE}.monaco_loafer ;;
-  }
-
-  dimension: swift_knit_derby {
-    type: number
-    sql: ${TABLE}.swift_knit_derby ;;
-  }
-
-  dimension: swift_knit_derby_wtz {
-    type: number
-    sql: ${TABLE}.swift_knit_derby_wtz ;;
-  }
-
-  dimension: swift_knit_loafer {
-    type: number
-    sql: ${TABLE}.swift_knit_loafer ;;
+    sql: ${TABLE}.target ;;
   }
 
   measure: count {
