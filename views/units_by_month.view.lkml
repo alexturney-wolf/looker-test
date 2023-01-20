@@ -22,12 +22,13 @@ view: units_by_month {
     }
   }
   dimension: line_item_qty {
-    description: ""
+    description: "a"
     type: number
   }
   dimension: created_timestamp_date {
     description: ""
     type: date
+    sql: CAST(${TABLE}.created_timestamp_date as TIMESTAMP FORMAT 'MM-DD-YYYY' )  ;;
   }
   dimension: title {
     description: ""
