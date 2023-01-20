@@ -7,6 +7,18 @@ view: units_by_month {
       column: line_item_qty { field: shopify__order_lines.line_item_qty }
       column: created_timestamp_date { field: shopify__orders.created_timestamp_date }
       column: title { field: shopify__order_lines.title }
+      filters: {
+        field: shopify__orders.source_name
+        value: "web,88312,3890849"
+      }
+      filters: {
+        field: shopify__orders.source_relation
+        value: "shopify,\"shopify_last_call\""
+      }
+      filters: {
+        field: order_tags_by_order.order_tags
+        value: "-%Wholesale%,-%wholesale%"
+      }
     }
   }
   dimension: line_item_qty {
