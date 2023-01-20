@@ -22,7 +22,7 @@ view: ip_targets_style {
   }
 
   dimension: date {
-    type: date
+    type: string
     sql: CAST(${TABLE}.date as DATE)  ;;
   }
 
