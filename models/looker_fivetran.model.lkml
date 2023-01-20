@@ -39,6 +39,10 @@ explore: shopify__customer_cohorts {
   label: "Customer Cohorts"
 }
 
+explore: ip_targets_style {
+  label: "Integrated Planning Targets"
+}
+
 explore: first_order_date {
 
 }
