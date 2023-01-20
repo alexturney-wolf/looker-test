@@ -22,7 +22,7 @@ view: ip_targets_style {
   }
 
   dimension: date {
-    type: string
+    type: date
     sql: ${TABLE}.date ;;
   }
 
