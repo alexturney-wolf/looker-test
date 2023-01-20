@@ -32,4 +32,8 @@ view: units_by_month {
   dimension: title {
     description: ""
   }
+  measure: running_target {
+    type: sum
+    sql: ${TABLE}.line_item_qty ;;
+  }
 }
