@@ -39,9 +39,20 @@ explore: shopify__customer_cohorts {
   label: "Customer Cohorts"
 }
 
-explore: ip_targets_style {
+explore: shopify__orders {
   label: "Integrated Planning Targets"
+  join: shopify__order_lines {
+    type: left_outer
+    sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
+    relationship: one_to_many
+  }
+  join: ip_targets_style {
+    type: left_outer
+    sql_on: ${shopify__order_lines.order_id} = ${ip_targets_style.style} AND ${shopify__orders.created_timestamp_date} = ${ip_targets_style.date};;
+    relationship: many_to_many
+  }
 }
+
 
 explore: first_order_date {
 
