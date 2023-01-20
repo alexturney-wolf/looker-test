@@ -28,7 +28,7 @@ view: units_by_month {
   dimension: created_timestamp_date {
     description: ""
     type: date
-    sql: CAST(${TABLE}.created_timestamp_date as DATE FORMAT 'MM-DD-YYYY' )  ;;
+    # sql: CAST(${TABLE}.created_timestamp_date as DATE FORMAT 'MM-DD-YYYY' )  ;;
   }
   dimension: title {
     description: ""
