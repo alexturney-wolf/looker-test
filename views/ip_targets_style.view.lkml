@@ -1,3 +1,11 @@
+# dimension_group: target_time {
+#   type: time
+#   timeframes: [ date, week, month, year ]
+#   # sql: CAST(${TABLE}.target_time as timestamp);;
+#   sql: TIMESTAMP_ADD(cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp),INTERVAL 10 HOUR);;
+#   # sql:  ${TABLE}.target_time  ;;
+# }
+
 view: ip_targets_style {
   sql_table_name: `fivetran-wolf-and-shepher-osfl.google_sheets.ip_targets_style`
     ;;
@@ -37,6 +45,15 @@ view: ip_targets_style {
     # sql: CAST(${TABLE}.target_time as timestamp);;
     sql: TIMESTAMP_ADD(cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp),INTERVAL 10 HOUR);;
     # sql:  ${TABLE}.target_time  ;;
+  }
+
+  dimension: target_day {
+    type: date
+    sql: TIMESTAMP_ADD(cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp),INTERVAL 10 HOUR);;
+  }
+  dimension: target_month {
+    type: date_month
+    sql: TIMESTAMP_ADD(cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp),INTERVAL 10 HOUR);;
   }
 
   measure: count {

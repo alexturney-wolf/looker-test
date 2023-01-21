@@ -1,13 +1,22 @@
 # If necessary, uncomment the line below to include explore_source.
 # include: "looker_fivetran.model.lkml"
-
+# dimension_group: created_timestamp_time {
+#   description: ""
+#   timeframes: [
+#     date,
+#     week,
+#     month,
+#     quarter,
+#     year
+#   ]
+#   type: time
+# }
 view: units_by_month {
   derived_table: {
     explore_source: shopify__transactions {
       column: line_item_qty { field: shopify__order_lines.line_item_qty }
       column: title { field: shopify__order_lines.title }
       column: created_timestamp_time { field: shopify__orders.created_timestamp_time }
-      column: joinDate { field: shopify__orders.created_timestamp_date }
       filters: {
         field: shopify__orders.source_name
         value: "web,88312,3890849"
@@ -29,21 +38,16 @@ view: units_by_month {
   dimension: title {
     description: ""
   }
-  dimension_group: created_timestamp_time {
-    description: ""
-    timeframes: [
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    type: time
+  dimension: created_day {
+    type: date
+    sql: ${TABLE}.created_timestamp_time;;
   }
-  dimension: joinDate {
-    description: ""
-    type: string
+
+  dimension: created_month {
+    type: date_month
+    sql: ${TABLE}.created_timestamp_time;;
   }
+
   measure: sum_qty {
     type: sum
     sql: ${TABLE}.line_item_qty ;;
