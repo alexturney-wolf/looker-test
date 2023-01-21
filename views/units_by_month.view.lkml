@@ -75,7 +75,7 @@ view: units_by_month {
   }
   dimension: created_day {
     type: date
-    sql: TIMESTAMP(DATE ${TABLE}.shopify__orders_created_timestamp_date);;
+    sql: TIMESTAMP(${TABLE}.shopify__orders_created_timestamp_date);;
   }
 
   # dimension: created_month {
