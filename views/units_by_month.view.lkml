@@ -7,7 +7,7 @@ view: units_by_month {
       column: line_item_qty { field: shopify__order_lines.line_item_qty }
       column: title { field: shopify__order_lines.title }
       column: created_timestamp_time { field: shopify__orders.created_timestamp_time }
-      column: created_timestamp_time { field: shopify__orders.created_timestamp_date }
+      column: join_date { field: shopify__orders.created_timestamp_date }
       filters: {
         field: shopify__orders.source_name
         value: "web,88312,3890849"
@@ -39,6 +39,11 @@ view: units_by_month {
       year
     ]
     type: time
+  }
+  dimension: join_date {
+    description: ""
+    type: string
+    sql:  CAST({TABLE}.join_date AS STRING) ;;
   }
   measure: sum_qty {
     type: sum
