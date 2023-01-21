@@ -39,14 +39,6 @@ view: ip_targets_style {
     sql: ${TABLE}.target ;;
   }
 
-  dimension_group: target_time {
-    type: time
-    timeframes: [ date, week, month, year ]
-    # sql: CAST(${TABLE}.target_time as timestamp);;
-    sql: TIMESTAMP_ADD(cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp),INTERVAL 10 HOUR);;
-    # sql:  ${TABLE}.target_time  ;;
-  }
-
   dimension: target_day {
     type: date
     sql: TIMESTAMP_ADD(cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp),INTERVAL 10 HOUR);;
