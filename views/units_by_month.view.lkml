@@ -74,8 +74,8 @@ view: units_by_month {
     sql:  ${TABLE}.shopify__order_lines_title ;;
   }
   dimension: created_day {
-    type: date_time
-    sql: TIMESTAMP(${TABLE}.shopify__orders_created_timestamp_date,'UTC');;
+    type: date
+    sql: ${TABLE}.shopify__orders_created_timestamp_date;;
   }
 
   # dimension: created_month {
