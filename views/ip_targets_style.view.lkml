@@ -34,7 +34,8 @@ view: ip_targets_style {
   dimension_group: target_time {
     type: time
     timeframes: [ time, date, week, month, year ]
-    sql: CAST(${TABLE}.target_time as timestamp);;
+    # sql: CAST(${TABLE}.target_time as timestamp);;
+    sql: cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp);;
     # sql:  ${TABLE}.target_time  ;;
   }
 
