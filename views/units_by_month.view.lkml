@@ -34,10 +34,7 @@ view: units_by_month {
       }
     }
   }
-  dimension: row_num {
-    type:  number
-    sql:  row() ;;
-  }
+
   dimension: title {
     description: ""
   }
