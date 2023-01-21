@@ -35,7 +35,7 @@ view: ip_targets_style {
     type: time
     timeframes: [ date, week, month, year ]
     # sql: CAST(${TABLE}.target_time as timestamp);;
-    sql: cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp);;
+    sql: TIME_ADD(cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp),INTERVAL 10 HOUR);;
     # sql:  ${TABLE}.target_time  ;;
   }
 
