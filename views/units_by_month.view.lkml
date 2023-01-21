@@ -75,7 +75,7 @@ view: units_by_month {
   }
   dimension: created_day {
     type: date
-    sql: TIMESTAMP(${TABLE}.shopify__orders_created_timestamp_date,"America/Los_Angeles");;
+    sql: TIMESTAMP(${TABLE}.shopify__orders_created_timestamp_date,"UTC");;
   }
 
   # dimension: created_month {
