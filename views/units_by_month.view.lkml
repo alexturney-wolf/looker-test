@@ -38,7 +38,7 @@ view: units_by_month {
     description: ""
   }
   dimension: created_day {
-    type: date
+    type: string
     sql: ${TABLE}.created_timestamp_date;;
   }
 
