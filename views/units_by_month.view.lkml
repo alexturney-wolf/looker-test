@@ -31,10 +31,6 @@ view: units_by_month {
       }
     }
   }
-  dimension: line_item_qty {
-    description: ""
-    type: number
-  }
   dimension: title {
     description: ""
   }
