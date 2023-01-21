@@ -42,4 +42,10 @@ view: ip_targets_style {
     type: count
     drill_fields: []
   }
+
+  measure: sum_target {
+    type: sum
+    sql: ${TABLE}.target ;;
+  }
+
 }
