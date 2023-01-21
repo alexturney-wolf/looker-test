@@ -45,5 +45,6 @@ view: units_by_month {
   measure: sum_qty {
     type: sum
     sql: ${TABLE}.line_item_qty ;;
+    value_format: "0"
   }
 }

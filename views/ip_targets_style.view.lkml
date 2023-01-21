@@ -47,6 +47,7 @@ view: ip_targets_style {
   measure: sum_target {
     type: sum
     sql: ${TABLE}.target ;;
+    value_format: "0"
   }
 
 }
