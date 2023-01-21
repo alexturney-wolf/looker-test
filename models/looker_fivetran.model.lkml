@@ -43,8 +43,8 @@ explore: units_by_month {
   label: "Integrated Planning Targets"
   join: ip_targets_style {
     type: left_outer
-    # sql_on: ${units_by_month.title} = ${ip_targets_style.style} AND ${units_by_month.created_timestamp_date} = ${ip_targets_style.target_time};;
-    sql_on: ${units_by_month.title} = ${ip_targets_style.style};;
+    sql_on: ${units_by_month.title} = ${ip_targets_style.style} AND ${units_by_month.created_timestamp_time_date} = ${ip_targets_style.target_time_date};;
+    # sql_on: ${units_by_month.title} = ${ip_targets_style.style};;
     relationship: one_to_one
   }
 }

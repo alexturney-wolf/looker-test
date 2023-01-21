@@ -42,19 +42,6 @@ view: units_by_month {
     ]
     type: time
   }
-  dimension_group: created_timestamp_date {
-    description: ""
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    type: time
-  }
   measure: sum_qty {
     type: sum
     sql: ${TABLE}.line_item_qty ;;
