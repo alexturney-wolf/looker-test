@@ -30,7 +30,7 @@ view: units_by_month {
       }
       filters: {
         field: order_tags_by_order.order_tags
-        value: "-%Wholesale%,-%wholesale%"
+        value: "-%Wholesale%,-%wholesale%,-%Draft%,-%draft%,-%Test%,-%test%"
       }
     }
   }
