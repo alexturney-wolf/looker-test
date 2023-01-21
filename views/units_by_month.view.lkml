@@ -52,9 +52,4 @@ view: units_by_month {
     sql: ${TABLE}.line_item_qty ;;
     value_format: "0"
   }
-  measure: running_total_qty {
-    type: running_total
-    sql: sum_qty ;;
-    value_format: "0"
-  }
 }
