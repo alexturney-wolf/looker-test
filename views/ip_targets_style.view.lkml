@@ -21,11 +21,6 @@ view: ip_targets_style {
     sql: ${TABLE}._row ;;
   }
 
-  dimension: date {
-    type: string
-    sql: CAST(${TABLE}.date as DATE FORMAT 'MM-DD-YYYY')  ;;
-  }
-
   dimension: style {
     type: string
     sql: ${TABLE}.style ;;
@@ -36,13 +31,15 @@ view: ip_targets_style {
     sql: ${TABLE}.target ;;
   }
 
+  dimension_group: target_time {
+    type: time
+    timeframes: [ time, date, week, month, year ]
+    sql: CAST(${TABLE}.target_time as date_time);;
+    # sql:  ${TABLE}.target_time  ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
-  }
-
-  measure: running_target {
-    type: sum
-    sql: ${TABLE}.target ;;
   }
 }
