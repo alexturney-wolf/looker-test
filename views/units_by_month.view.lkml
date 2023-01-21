@@ -76,7 +76,7 @@ view: units_by_month {
   dimension: created_day {
     type: date
     sql: ${TABLE}.shopify__orders_created_timestamp_date;;
-    convert_tz: no
+    convert_tz: yes
   }
 
   # dimension: created_month {
