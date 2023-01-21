@@ -19,7 +19,7 @@ view: units_by_month {
     explore_source: shopify__transactions {
       column: line_item_qty { field: shopify__order_lines.line_item_qty }
       column: title { field: shopify__order_lines.title }
-      column: created_timestamp_date { field: shopify__orders.created_timestamp_time }
+      column: created_timestamp_time { field: shopify__orders.created_timestamp_time }
       filters: {
         field: shopify__orders.source_name
         value: "web,88312,3890849"
@@ -39,12 +39,12 @@ view: units_by_month {
   }
   dimension: created_day {
     type: date
-    sql: DATE(${TABLE}.created_timestamp_date,'America/Los_Angeles' );;
+    sql: DATE(${TABLE}.created_timestamp_time,'America/Los_Angeles' );;
   }
 
   dimension: created_month {
     type: date_month
-    sql: DATE(${TABLE}.created_timestamp_date,'America/Los_Angeles' );;
+    sql: DATE(${TABLE}.created_timestamp_time,'America/Los_Angeles' );;
   }
 
   measure: sum_qty {
