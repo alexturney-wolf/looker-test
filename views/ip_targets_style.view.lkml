@@ -59,4 +59,10 @@ view: ip_targets_style {
     value_format: "0"
   }
 
+  measure: running_total_target {
+    type: running_total
+    sql: ${TABLE}.target ;;
+    value_format: "0"
+  }
+
 }
