@@ -41,7 +41,7 @@ view: ip_targets_style {
 
   dimension: target_day {
     type: date
-    sql:  ${TABLE}.target_time ;;
+    sql:  TIMESTAMP(${TABLE}.target_time);;
     # sql: cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp);;
     # sql: TIMESTAMP_ADD(cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp),INTERVAL 10 HOUR);;
   }
