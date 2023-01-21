@@ -43,7 +43,6 @@ view: units_by_month {
   dimension: joinDate {
     description: ""
     type: string
-    sql:  CAST({TABLE}.joinDate AS STRING) ;;
   }
   measure: sum_qty {
     type: sum
