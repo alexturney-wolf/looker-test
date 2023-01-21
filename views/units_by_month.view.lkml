@@ -55,4 +55,8 @@ view: units_by_month {
     ]
     type: time
   }
+  measure: sum_qty {
+    type: sum
+    sql: ${TABLE}.line_item_qty ;;
+  }
 }
