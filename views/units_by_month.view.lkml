@@ -32,8 +32,6 @@ view: units_by_month {
   dimension_group: created_timestamp_time {
     description: ""
     timeframes: [
-      raw,
-      time,
       date,
       week,
       month,
