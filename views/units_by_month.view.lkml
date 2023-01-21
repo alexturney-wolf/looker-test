@@ -19,7 +19,7 @@ view: units_by_month {
     explore_source: shopify__transactions {
       column: line_item_qty { field: shopify__order_lines.line_item_qty }
       column: title { field: shopify__order_lines.title }
-      column: created_timestamp_date { field: shopify__orders.created_timestamp_date }
+      column: created_timestamp_date { field: shopify__orders.created_timestamp_raw }
       filters: {
         field: shopify__orders.source_name
         value: "web,88312,3890849"
