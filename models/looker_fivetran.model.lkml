@@ -39,9 +39,9 @@ explore: shopify__customer_cohorts {
   label: "Customer Cohorts"
 }
 
-explore: units_by_month {
+explore: ip_targets_style {
   label: "Integrated Planning Targets"
-  join: ip_targets_style {
+  join: units_by_month{
     type: left_outer
     sql_on: ${units_by_month.title} = ${ip_targets_style.style} AND ${units_by_month.created_timestamp_time_date} = ${ip_targets_style.target_time_date};;
     # sql_on: ${units_by_month.title} = ${ip_targets_style.style};;
