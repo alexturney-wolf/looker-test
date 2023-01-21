@@ -5,8 +5,9 @@ view: units_by_month {
   derived_table: {
     explore_source: shopify__transactions {
       column: line_item_qty { field: shopify__order_lines.line_item_qty }
-      column: created_timestamp_date { field: shopify__orders.created_timestamp_date }
       column: title { field: shopify__order_lines.title }
+      column: created_timestamp_time { field: shopify__orders.created_timestamp_time }
+      column: created_timestamp_time { field: shopify__orders.created_timestamp_date }
       filters: {
         field: shopify__orders.source_name
         value: "web,88312,3890849"
@@ -22,19 +23,18 @@ view: units_by_month {
     }
   }
   dimension: line_item_qty {
-    description: "a"
-    type: number
-  }
-  dimension: created_timestamp_date {
     description: ""
-    type: date
-    # sql: CAST(${TABLE}.created_timestamp_date as DATE FORMAT 'MM-DD-YYYY' )  ;;
+    type: number
   }
   dimension: title {
     description: ""
   }
-  measure: running_target {
-    type: sum
-    sql: ${TABLE}.line_item_qty ;;
+  dimension: created_timestamp_time {
+    description: ""
+    type: date_time
+  }
+  dimension: created_timestamp_date {
+    description: ""
+    type: date_time
   }
 }
