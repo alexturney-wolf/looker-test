@@ -40,6 +40,7 @@ view: units_by_month {
   dimension: created_day {
     type: date
     sql: ${TABLE}.created_timestamp_date;;
+    convert_tz: no
   }
 
   # dimension: created_month {
