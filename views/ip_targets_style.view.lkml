@@ -21,7 +21,7 @@ view: ip_targets_style {
       quarter,
       year
     ]
-    sql: ${TABLE}._fivetran_synced ;;
+    sql: timestamp(${TABLE}._fivetran_synced) ;;
   }
 
   dimension: _row {
