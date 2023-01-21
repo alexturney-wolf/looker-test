@@ -54,7 +54,7 @@ view: units_by_month {
   }
   measure: running_total_qty {
     type: running_total
-    sql: ${TABLE}.sum_qty ;;
+    sql: sum_qty ;;
     value_format: "0"
   }
 }
