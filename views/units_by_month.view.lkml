@@ -42,10 +42,10 @@ view: units_by_month {
     sql: ${TABLE}.created_timestamp_date;;
   }
 
-  dimension: created_month {
-    type: date_month
-    sql: ${TABLE}.created_timestamp_date;;
-  }
+  # dimension: created_month {
+  #   type: date_month
+  #   sql: ${TABLE}.created_timestamp_date;;
+  # }
 
   measure: sum_qty {
     type: sum
