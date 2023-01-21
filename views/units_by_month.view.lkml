@@ -29,12 +29,30 @@ view: units_by_month {
   dimension: title {
     description: ""
   }
-  dimension: created_timestamp_time {
+  dimension_group: created_timestamp_time {
     description: ""
-    type: date_time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    type: time
   }
-  dimension: created_timestamp_date {
+  dimension_group: created_timestamp_date {
     description: ""
-    type: date_time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    type: time
   }
 }
