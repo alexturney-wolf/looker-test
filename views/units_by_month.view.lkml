@@ -39,12 +39,12 @@ view: units_by_month {
   }
   dimension: created_day {
     type: date
-    sql: ${TABLE}.created_timestamp_time;;
+    sql: ${TABLE}.created_timestamp_date;;
   }
 
   dimension: created_month {
     type: date_month
-    sql: ${TABLE}.created_timestamp_time;;
+    sql: ${TABLE}.created_timestamp_date;;
   }
 
   measure: sum_qty {
