@@ -39,7 +39,7 @@ view: units_by_month {
   }
   dimension: created_day {
     type: date
-    sql: DATE(${TABLE}.created_timestamp_date,"UTC");;
+    sql: DATE(${TABLE}.created_timestamp_date);;
     convert_tz: no
   }
 
