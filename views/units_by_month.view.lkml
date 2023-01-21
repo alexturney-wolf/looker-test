@@ -49,7 +49,7 @@ view: units_by_month {
        )
     SELECT
         shopify__order_lines.title  AS shopify__order_lines_title,
-            (DATE(shopify__orders.created_timestamp)) AS shopify__orders_created_timestamp_date,
+            (DATE(shopify__orders.created_timestamp, "America/Los_Angeles")) AS shopify__orders_created_timestamp_date,
         ROUND(COALESCE(CAST( ( SUM(DISTINCT (CAST(ROUND(COALESCE( shopify__order_lines.quantity  ,0)*(1/1000*1.0), 9) AS NUMERIC) + (cast(cast(concat('0x', substr(to_hex(md5(CAST( shopify__order_lines.order_line_id   AS STRING))), 1, 15)) as int64) as numeric) * 4294967296 + cast(cast(concat('0x', substr(to_hex(md5(CAST( shopify__order_lines.order_line_id   AS STRING))), 16, 8)) as int64) as numeric)) * 0.000000001 )) - SUM(DISTINCT (cast(cast(concat('0x', substr(to_hex(md5(CAST( shopify__order_lines.order_line_id   AS STRING))), 1, 15)) as int64) as numeric) * 4294967296 + cast(cast(concat('0x', substr(to_hex(md5(CAST( shopify__order_lines.order_line_id   AS STRING))), 16, 8)) as int64) as numeric)) * 0.000000001) )  / (1/1000*1.0) AS FLOAT64), 0), 6) AS shopify__order_lines_line_item_qty
     FROM `fivetran-wolf-and-shepher-osfl.prod_schema_shopify.shopify__transactions`
          AS shopify__transactions
@@ -75,7 +75,7 @@ view: units_by_month {
   }
   dimension: created_day {
     type: date
-    sql: TIMESTAMP(${TABLE}.shopify__orders_created_timestamp_date,"UTC");;
+    sql: TIMESTAMP(${TABLE}.shopify__orders_created_timestamp_date,"America/Los_Angeles");;
   }
 
   # dimension: created_month {
