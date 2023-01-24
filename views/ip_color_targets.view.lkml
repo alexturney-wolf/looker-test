@@ -21,9 +21,9 @@ view: ip_color_targets {
     sql: ${TABLE}._row ;;
   }
 
-  dimension: style_color {
+  dimension: color {
     type: string
-    sql: ${TABLE}.style_color ;;
+    sql: ${TABLE}.color ;;
   }
 
   dimension: target {
@@ -31,25 +31,23 @@ view: ip_color_targets {
     sql: ${TABLE}.target ;;
   }
 
-  # dimension_group: target {
-  #   type: time
-  #   timeframes: [
-  #     raw,
-  #     time,
-  #     date,
-  #     week,
-  #     month,
-  #     quarter,
-  #     year
-  #   ]
-  #   datatype: datetime
-  #   sql: ${TABLE}.target_time ;;
-  # }
+  dimension: title {
+    type: string
+    sql: ${TABLE}.title ;;
+  }
+
+  measure: count {
+    type: count
+    drill_fields: []
+  }
 
   dimension: target_day {
     type: date
     sql:  TIMESTAMP(${TABLE}.target_time);;
   }
+
+    # sql: cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp);;
+    # sql: TIMESTAMP_ADD(cast(PARSE_DATETIME('%m/%e/%Y %k:%M:%S',${TABLE}.target_time) as timestamp),INTERVAL 10 HOUR);;
 
   measure: sum_target {
     type: sum
@@ -57,8 +55,4 @@ view: ip_color_targets {
     value_format: "0"
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
 }

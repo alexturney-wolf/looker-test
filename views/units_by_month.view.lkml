@@ -81,11 +81,6 @@ view: units_by_month {
     sql: ${TABLE}.color;;
   }
 
-  dimension: style_color {
-    description: ""
-    sql: concat(${TABLE}.shopify__order_lines_title," - ", ${TABLE}.color);;
-  }
-
   dimension: created_day {
     type: date
     sql: TIMESTAMP(${TABLE}.shopify__orders_created_timestamp_date,"America/Los_Angeles");;
