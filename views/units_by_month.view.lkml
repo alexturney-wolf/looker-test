@@ -76,7 +76,7 @@ view: units_by_month {
 
   dimension: style_color {
     description: ""
-    sql: concat(${TABLE}.shopify__order_lines_title," - ",IF(REGEXP_CONTAINS(${TABLE}.variant_title, '[A-z \\/]+ \\/'),regexp_extract(${TABLE}.variant_title,'([A-z \\/]+) \\/'), regexp_extract(${TABLE}.variant_title,'([A-z]+)') ) );;
+    sql: concat(${TABLE}.shopify__order_lines_title," - ",IF(REGEXP_CONTAINS(${TABLE}.shopify__order_lines_title, '[A-z \\/]+ \\/'),regexp_extract(${TABLE}.shopify__order_lines_title,'([A-z \\/]+) \\/'), regexp_extract(${TABLE}.shopify__order_lines_title,'([A-z]+)') ) );;
   }
 
   dimension: created_day {
