@@ -49,6 +49,16 @@ explore: ip_targets_style {
   }
 }
 
+explore: ip_color_targets {
+  label: "Integrated Planning Targets - Color"
+  join: units_by_month {
+    type: left_outer
+    sql_on: ${ip_color_targets.style_color} = ${units_by_month.style_color} AND ${ip_color_targets.target_day} = ${units_by_month.created_day};;
+    # sql_on: ${units_by_month.title} = ${ip_targets_style.style};;
+    relationship: one_to_one
+  }
+}
+
 
 explore: first_order_date {
 
