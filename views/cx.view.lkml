@@ -13,7 +13,7 @@ view: cx {
         FROM `fivetran-wolf-and-shepher-osfl.prod_schema_shopify.shopify__orders` as o
         LEFT JOIN `fivetran-wolf-and-shepher-osfl.shopify.order_line` l on l.order_id = o.order_id
         LEFT JOIN UNNEST(JSON_EXTRACT_ARRAY(properties, '$')) as ar
-        WHERE o.created_timestamp >= timestamp("2022-01-01 00:00:00") AND
+        WHERE o.created_timestamp >= timestamp("2022-01-01 00:00:00")
       )
     select *
     from temp
