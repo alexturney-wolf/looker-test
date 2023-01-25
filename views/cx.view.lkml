@@ -33,7 +33,7 @@ view: cx {
 
   dimension: prop_value {
     description: ""
-    sql:  ${TABLE}.prop_vale;;
+    sql:  ${TABLE}.prop_value;;
   }
 
 }
