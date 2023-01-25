@@ -26,8 +26,9 @@ view: cx {
   }
 
   dimension: order_number {
-    description: ""
-    sql:  ${TABLE}.order_number;;
+    type: number
+    sql: ${TABLE}.order_number ;;
+    value_format_name: id
   }
 
   dimension: prop_value {
