@@ -27,12 +27,12 @@ view: cx {
 
   dimension: order_number {
     description: ""
-    sql:  ${TABLE}.title;;
+    sql:  ${TABLE}.order_number;;
   }
 
   dimension: prop_value {
-    type: date
-    sql: TIMESTAMP(${TABLE}.shopify__orders_created_timestamp_date,"America/Los_Angeles");;
+    description: ""
+    sql:  ${TABLE}.prop_vale;;
   }
 
 }
