@@ -2,7 +2,7 @@ view: cx {
   derived_table: {
     sql:
       WITH temp as (
-        SELECT o.order_number, l.properties, json_extract(ar,"$.value") as prop_value, l.title,
+        SELECT o.order_number, l.properties, o.email, json_extract(ar,"$.value") as prop_value, l.title,
         CASE
           WHEN properties = "[]" THEN "no metadata"
           WHEN properties like "%Sale%" THEN "final sale"
@@ -23,6 +23,11 @@ view: cx {
   dimension: title {
     description: ""
     sql:  ${TABLE}.title;;
+  }
+
+  dimension: email {
+    description: ""
+    sql:  ${TABLE}.email;;
   }
 
   dimension: order_number {
