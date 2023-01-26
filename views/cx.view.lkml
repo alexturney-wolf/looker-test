@@ -34,6 +34,7 @@ view: cx {
     type: number
     sql: ${TABLE}.order_number ;;
     value_format_name: id
+    primary_key: yes
   }
 
   dimension: prop_value {
