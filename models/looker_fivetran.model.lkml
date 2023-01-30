@@ -46,9 +46,9 @@ explore: cx {
 
 explore: ip_targets_style {
   label: "Integrated Planning Targets"
-  join: units_by_month{
+  join: units_by_month_by_style {
     type: left_outer
-    sql_on: ${ip_targets_style.style} = ${units_by_month.title} AND ${ip_targets_style.target_day} = ${units_by_month.created_day};;
+    sql_on: ${ip_targets_style.style} = ${units_by_month_by_style.title} AND ${ip_targets_style.target_day} = ${units_by_month_by_style.created_day};;
     # sql_on: ${units_by_month.title} = ${ip_targets_style.style};;
     relationship: one_to_one
   }
