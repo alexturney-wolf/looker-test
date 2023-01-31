@@ -29,10 +29,9 @@ view: units_by_month_by_style {
     WHERE (shopify__orders.source_name ) IN ('3890849', '88312', 'web') AND (shopify__orders.source_relation ) IN ('shopify', 'shopify_last_call') AND ((order_tags_by_order.order_tag_list_test ) NOT LIKE '%wholesale%' AND ((order_tags_by_order.order_tag_list_test ) NOT LIKE '%Wholesale%' AND (order_tags_by_order.order_tag_list_test ) NOT LIKE '%draft%') AND ((order_tags_by_order.order_tag_list_test ) NOT LIKE '%Draft%' AND ((order_tags_by_order.order_tag_list_test ) NOT LIKE '%Test%' AND (order_tags_by_order.order_tag_list_test ) NOT LIKE '%test%')) OR (order_tags_by_order.order_tag_list_test ) IS NULL) AND ((order_tags_by_order.order_tag_list_test <> 'wholesale' OR order_tags_by_order.order_tag_list_test IS NULL))
     GROUP BY
         1,
-        2,
-        3
+        2
     ORDER BY
-        3 DESC
+        2 DESC
       ;;
   }
 
