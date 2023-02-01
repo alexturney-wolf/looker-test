@@ -43,7 +43,6 @@ explore: cx {
   label: "CX Pre-Orders"
 }
 
-
 explore: ip_targets_style {
   label: "Integrated Planning Targets"
   join: units_by_month_by_style {
