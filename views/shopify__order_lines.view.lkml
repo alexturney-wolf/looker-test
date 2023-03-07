@@ -279,7 +279,7 @@ view: shopify__order_lines {
 
   dimension: name_second_half {
     type:  string
-    sql: regexp_extract(${TABLE}.variant_title,'.*- (.*)') ;;
+    sql: regexp_extract(${TABLE}.name,'.*- (.*)') ;;
   }
 
   dimension: is_markdown {
