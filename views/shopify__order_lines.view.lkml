@@ -274,7 +274,7 @@ view: shopify__order_lines {
 
   dimension: variant_color {
     type:  string
-    sql: IF(REGEXP_CONTAINS(regexp_extract(${TABLE}.name,'.*- (.*)'), '[A-z \\/]+ \\/'),regexp_extract(regexp_extract(${TABLE}.name,'.*- (.*)'),'([A-z \\/]+) \\/'), regexp_extract({regexp_extract(${TABLE}.name,'.*- (.*)'),'([A-z]+)') ) ;;
+    sql: IF(REGEXP_CONTAINS(regexp_extract(${TABLE}.name,'.*- (.*)'), '[A-z \\/]+ \\/'),regexp_extract(regexp_extract(${TABLE}.name,'.*- (.*)'),'([A-z \\/]+) \\/'), regexp_extract(regexp_extract(${TABLE}.name,'.*- (.*)'),'([A-z]+)') ) ;;
   }
 
   dimension: is_markdown {
