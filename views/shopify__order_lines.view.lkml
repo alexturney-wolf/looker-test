@@ -274,7 +274,7 @@ view: shopify__order_lines {
 
   dimension: variant_color {
     type:  string
-    sql: IF(REGEXP_CONTAINS(${TABLE}.variant_title, '[A-z \\/]+ \\/'),regexp_extract(${TABLE}.variant_title,'([A-z \\/]+) \\/'), regexp_extract(${TABLE}.variant_title,'([A-z]+)') ) ;;
+    sql: IF(REGEXP_CONTAINS(${TABLE}.name_second_half, '[A-z \\/]+ \\/'),regexp_extract(${TABLE}.name_second_half,'([A-z \\/]+) \\/'), regexp_extract(${TABLE}.name_second_half,'([A-z]+)') ) ;;
   }
 
   dimension: name_second_half {
