@@ -120,6 +120,13 @@ explore: shopify__transactions {
     sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
     relationship: one_to_many
   }
+  # new
+  join: order_line_tags {
+    type: left_outer
+    sql_on: ${shopify__order_lines.order_line_id} =  ${order_line_tags.properties} ;;
+    relationship: one_to_many
+  }
+
   join: shopify__products {
     type:  left_outer
     sql_on: ${shopify__order_lines.product_id} = ${shopify__products.product_id} ;;
