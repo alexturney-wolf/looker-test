@@ -123,7 +123,7 @@ explore: shopify__transactions {
   # new
   join: order_line_tags {
     type: left_outer
-    sql_on: ${shopify__order_lines.order_line_id} =  ${order_line_tags.properties} ;;
+    sql_on: ${shopify__order_lines.order_line_id} =  ${order_line_tags.order_line_id} ;;
     relationship: one_to_many
   }
 
