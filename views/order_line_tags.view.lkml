@@ -31,11 +31,15 @@ view: order_line_tags {
   dimension: gender {
     case: {
       when: {
-        sql: CONTAINS_SUBSTR(${TABLE}.order_line_properties,'womens');;
+        sql: CONTAINS_SUBSTR(${TABLE}.order_line_properties,'women');;
         label: "womens"
       }
+      when: {
+        sql: CONTAINS_SUBSTR(${TABLE}.order_line_properties,'men');;
+        label: "mens"
+      }
       # possibly more when statements
-      else: "mens"
+      else: "not specified"
     }
   }
 
