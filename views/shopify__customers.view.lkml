@@ -170,11 +170,13 @@ view: shopify__customers {
   measure: agg_lifetime_rev {
     type: number
     sql: SUM(${lifetime_total_amount}) ;;
+    value_format_name: usd
   }
 
   measure: avg_lifetime_rev {
     sql: ${agg_lifetime_rev} / ${email_count} ;;
     type: number
+    value_format_name: usd
   }
 
   measure: real_first_order_date{
