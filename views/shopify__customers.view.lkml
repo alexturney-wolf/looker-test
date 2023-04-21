@@ -102,16 +102,19 @@ view: shopify__customers {
   dimension: lifetime_total_amount {
     type: number
     sql: ${TABLE}.lifetime_total_amount ;;
+    value_format_name: usd
   }
 
   dimension: lifetime_total_refunded {
     type: number
     sql: ${TABLE}.lifetime_total_refunded ;;
+    value_format_name: usd
   }
 
   dimension: lifetime_total_spent {
     type: number
     sql: ${TABLE}.lifetime_total_spent ;;
+    value_format_name: usd
   }
 
   dimension_group: most_recent_order_timestamp {
