@@ -332,6 +332,11 @@ view: shopify__order_lines {
     sql:  ${TABLE}.quantity ;;
   }
 
+  measure: refunded_line_item_qty {
+    type: sum
+    sql:  ${TABLE}.refunded_quantity ;;
+  }
+
   measure: total_markdown {
     type: sum
     sql:  ${markdown_amount} ;;
