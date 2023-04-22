@@ -161,13 +161,8 @@ view: shopify__customers {
   }
 
   measure: email_count {
-    type: number
-    sql: COUNT(distinct ${email}) ;;
-  }
-
-  measure: email_count_not_distinct {
-    type: number
-    sql: COUNT(${email}) ;;
+    type: count_distinct
+    sql: ${email} ;;
   }
 
   measure: sum_lifetime_rev {
