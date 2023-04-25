@@ -1,7 +1,7 @@
 view: cust_tags_by_cust {
     derived_table: {
       sql: SELECT
-          cust_tag.order_id  AS cust_tag_id,
+          cust_tag.customer_id  AS cust_tag_id,
           STRING_AGG(DISTINCT CAST(cust_tag.value AS STRING), ', ') AS cust_tag_list
       FROM `fivetran-wolf-and-shepher-osfl.prod_schema_shopify.shopify__customers`
            AS shopify__customers
