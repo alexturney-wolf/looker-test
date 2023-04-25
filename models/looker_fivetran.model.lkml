@@ -113,6 +113,11 @@ explore: shopify__transactions {
     relationship: many_to_many
     sql_on: ${shopify__orders.customer_id} = ${shopify__customers.customer_id} ;;
   }
+  join: cust_tags_by_cust {
+    type:  left_outer
+    relationship: many_to_one
+    sql_on: ${shopify__customers.customer_id} = ${cust_tags_by_cust.customer_tag_id} ;;
+  }
   join: first_order_date {
     type:  left_outer
     relationship: many_to_one
