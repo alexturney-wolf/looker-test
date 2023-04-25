@@ -44,14 +44,14 @@ explore: cx {
 }
 
 
-explore: shopify__customers {
-  label: "customer tags"
-  join: cust_tags_by_cust {
-    type:  left_outer
-    relationship: many_to_one
-    sql_on: ${shopify__customers.customer_id} = ${cust_tags_by_cust.customer_tag_id} ;;
-  }
-}
+# explore: shopify__customers {
+#   label: "customer tags"
+#   join: cust_tags_by_cust {
+#     type:  left_outer
+#     relationship: many_to_one
+#     sql_on: ${shopify__customers.customer_id} = ${cust_tags_by_cust.customer_tag_id} ;;
+#   }
+# }
 # explore: ip_targets_style {
 #   label: "Integrated Planning Targets"
 #   join: units_by_month_by_style {
