@@ -27,13 +27,13 @@ persist_with: looker_fivetran_default_datagroup
 
 
 # dbt model for klaviyo and shopify
-explore: shopify_holistic_reporting__customer_enhanced {
-  join: shopify__orders {
-    type: left_outer
-    relationship: one_to_many
-    sql_on: CAST(${shopify__orders.customer_id} as string) = cast(${shopify_holistic_reporting__customer_enhanced.shopify_customer_ids} as string) ;;
-  }
-}
+# explore: shopify_holistic_reporting__customer_enhanced {
+#   join: shopify__orders {
+#     type: left_outer
+#     relationship: one_to_many
+#     sql_on: CAST(${shopify__orders.customer_id} as string) = cast(${shopify_holistic_reporting__customer_enhanced.shopify_customer_ids} as string) ;;
+#   }
+# }
 
 explore: shopify__customer_cohorts {
   label: "Customer Cohorts"
@@ -43,33 +43,36 @@ explore: cx {
   label: "CX Pre-Orders"
 }
 
-explore: ip_targets_style {
-  label: "Integrated Planning Targets"
-  join: units_by_month_by_style {
-    type: left_outer
-    sql_on: ${ip_targets_style.style} = ${units_by_month_by_style.title} AND ${ip_targets_style.target_day} = ${units_by_month_by_style.created_day};;
-    # sql_on: ${units_by_month.title} = ${ip_targets_style.style};;
-    relationship: one_to_one
+
+explore: shopify__customers {
+  label: "customer tags"
+  join: cust_tags_by_cust {
+    type:  left_outer
+    relationship: many_to_one
+    sql_on: ${shopify__customers.customer_id} = ${cust_tags_by_cust.customer_tag_id} ;;
   }
 }
+# explore: ip_targets_style {
+#   label: "Integrated Planning Targets"
+#   join: units_by_month_by_style {
+#     type: left_outer
+#     sql_on: ${ip_targets_style.style} = ${units_by_month_by_style.title} AND ${ip_targets_style.target_day} = ${units_by_month_by_style.created_day};;
+#     # sql_on: ${units_by_month.title} = ${ip_targets_style.style};;
+#     relationship: one_to_one
+#   }
+# }
 
-explore: ip_color_targets {
-  label: "Integrated Planning Targets - Color"
-  join: units_by_month {
-    type: left_outer
-    sql_on: ${ip_color_targets.title} = ${units_by_month.title}
-      AND ${ip_color_targets.color} = ${units_by_month.color}
-      AND ${ip_color_targets.target_day} = ${units_by_month.created_day};;
-    # sql_on: ${units_by_month.title} = ${ip_targets_style.style};;
-    relationship: one_to_one
-  }
-}
-
-
-explore: first_order_date {
-
-}
-
+# explore: ip_color_targets {
+#   label: "Integrated Planning Targets - Color"
+#   join: units_by_month {
+#     type: left_outer
+#     sql_on: ${ip_color_targets.title} = ${units_by_month.title}
+#       AND ${ip_color_targets.color} = ${units_by_month.color}
+#       AND ${ip_color_targets.target_day} = ${units_by_month.created_day};;
+#     # sql_on: ${units_by_month.title} = ${ip_targets_style.style};;
+#     relationship: one_to_one
+#   }
+# }
 # explore: shopify__customers {}
 # explore: shopify__order_lines {}
 # explore: og_orders {
@@ -138,19 +141,6 @@ explore: shopify__transactions {
     relationship: one_to_one
   }
    sql_always_where: (${order_tags_by_order.order_tags} <> 'wholesale' OR ${order_tags_by_order.order_tags} IS NULL);;
-}
-
-explore: shopify_holistic_reporting__orders_attribution {
-  join: shopify__orders {
-    type: inner
-    relationship: one_to_one
-    sql_on: ${shopify__orders.order_id} = ${shopify_holistic_reporting__orders_attribution.order_id};;
-  }
-  join: shopify__order_lines {
-    type: full_outer
-    relationship: one_to_many
-    sql_on: ${shopify__orders.order_id} =  ${shopify__order_lines.order_id} ;;
-  }
 }
 
 
