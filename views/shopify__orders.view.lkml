@@ -455,8 +455,14 @@ view: shopify__orders {
   dimension: orderTier {
     sql: CASE
         WHEN ${subtotal_price} = 0 THEN '0'
-        WHEN ${subtotal_price} <= 200 THEN '< $200'
-        WHEN ${subtotal_price} <= 400 THEN '< $400'
+        WHEN ${subtotal_price} <= 50 THEN '<= $50'
+        WHEN ${subtotal_price} <= 100 THEN '<= $100'
+        WHEN ${subtotal_price} <= 150 THEN '<= $150'
+        WHEN ${subtotal_price} <= 200 THEN '<= $200'
+        WHEN ${subtotal_price} <= 250 THEN '<= $250'
+        WHEN ${subtotal_price} <= 250 THEN '<= $300'
+        WHEN ${subtotal_price} <= 250 THEN '<= $350'
+        WHEN ${subtotal_price} <= 400 THEN '<= $400'
         WHEN ${subtotal_price} > 400 THEN '> $400'
         ELSE 'Other'
         END ;;
