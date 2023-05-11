@@ -451,6 +451,16 @@ view: shopify__orders {
     type: number
     sql: ${subtotal_price} - IFNULL(${refund_subtotal}, 0) ;;
   }
+
+  dimension: orderTier {
+    sql: CASE
+        WHEN ${subtotal_price} = 0 THEN '0'
+        WHEN ${subtotal_price} <= 200 THEN '< $200'
+        WHEN ${subtotal_price} <= 400 THEN '< $400'
+        WHEN ${subtotal_price} > 400 THEN '> $400'
+        ELSE 'Other'
+        END ;;
+  }
   # custom - END
 
   measure: count {
