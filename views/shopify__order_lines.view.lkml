@@ -355,7 +355,7 @@ view: shopify__order_lines {
   }
 
   measure: product_revenue {
-    type: sum
+    type: sum_distinct
     sql: ${TABLE}.price ;;
     value_format_name: usd
   }

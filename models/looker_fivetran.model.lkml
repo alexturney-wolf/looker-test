@@ -158,10 +158,10 @@ explore: shopify__transactions {
 #   }
 # }
 
-# explore: event {
-#   join: klaviyo__persons {
-#     type: inner
-#     relationship: one_to_one
-#     sql_on: ${klaviyo__persons.person_id} = ${event.person_id};;
-#   }
-# }
+explore: klaviyo__events {
+  join: klaviyo__persons {
+    type: inner
+    relationship: one_to_one
+    sql_on: ${klaviyo__persons.person_id} = ${klaviyo__events.person_id};;
+  }
+}
