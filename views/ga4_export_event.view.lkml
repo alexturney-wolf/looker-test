@@ -425,7 +425,7 @@ view: ga4_export_event {
     type:  string
     sql: CASE
       WHEN ${param_source} is not null THEN ${param_source}
-      ELSE ${traffic_source_source})
+      ELSE ${traffic_source_source}
       END ;;
   }
   measure: count {
