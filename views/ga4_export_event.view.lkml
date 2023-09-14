@@ -428,6 +428,13 @@ view: ga4_export_event {
       ELSE ${traffic_source_source}
       END ;;
   }
+  dimension: custom_medium {
+    type:  string
+    sql: CASE
+      WHEN ${param_medium} is not null THEN ${param_medium}
+      ELSE ${traffic_source_medium}
+      END ;;
+  }
   measure: count {
     type: count
     drill_fields: [detail*]
