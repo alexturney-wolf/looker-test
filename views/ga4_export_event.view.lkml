@@ -435,6 +435,13 @@ view: ga4_export_event {
       ELSE ${traffic_source_medium}
       END ;;
   }
+  dimension: custom_campaign {
+    type:  string
+    sql: CASE
+      WHEN ${param_campaign} is not null THEN ${param_campaign}
+      ELSE ${traffic_source_name}
+      END ;;
+  }
   measure: count {
     type: count
     drill_fields: [detail*]
