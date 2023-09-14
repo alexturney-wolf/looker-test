@@ -151,7 +151,7 @@ explore: shopify__transactions {
 
 
 explore: shopify__orders {
-  label: "W&S Master Orders"
+  label: "W&S TEST"
   join: shopify__transactions {
     type: full_outer
     relationship: many_to_one
