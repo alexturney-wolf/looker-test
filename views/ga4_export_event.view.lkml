@@ -423,7 +423,10 @@ view: ga4_export_event {
   }
   dimension: custom_source {
     type:  string
-    sql:  case(when(${param_source} is not null, ${param_source}), %${traffic_source_source});;
+    sql: CASE
+      WHEN ${param_source} is not null THEN ${param_source}
+      ELSE ${traffic_source_source})
+      END ;;
   }
   measure: count {
     type: count
