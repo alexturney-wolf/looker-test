@@ -421,6 +421,10 @@ view: ga4_export_event {
     type: number
     sql: ${TABLE}.value_in_usd ;;
   }
+  dimension: custom_source {
+    type:  string
+    sql:  case(when(${param_source} is not null, ${param_source}), %${traffic_source_source});;
+  }
   measure: count {
     type: count
     drill_fields: [detail*]
