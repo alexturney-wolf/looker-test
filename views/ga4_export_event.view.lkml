@@ -1,4 +1,4 @@
-view: event {
+view: ga4_export_event {
   sql_table_name: `fivetran-wolf-and-shepher-osfl.google_analytics_4_export.event` ;;
 
   dimension: _fivetran_id {
@@ -429,16 +429,16 @@ view: event {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	param_item_list_name,
-	device_mobile_model_name,
-	traffic_source_name,
-	device_mobile_brand_name,
-	param_product_name,
-	device_web_info_hostname,
-	event_dimensions_hostname,
-	name,
-	device_mobile_marketing_name
-	]
+  param_item_list_name,
+  device_mobile_model_name,
+  traffic_source_name,
+  device_mobile_brand_name,
+  param_product_name,
+  device_web_info_hostname,
+  event_dimensions_hostname,
+  name,
+  device_mobile_marketing_name
+  ]
   }
 
 }

@@ -1,4 +1,4 @@
-view: item {
+view: ga4_export_item {
   sql_table_name: `fivetran-wolf-and-shepher-osfl.google_analytics_4_export.item` ;;
   drill_fields: [id]
 
