@@ -31,7 +31,6 @@ view: inventory_level {
     type: number
     # hidden: yes
     sql: ${TABLE}.location_id ;;
-    primary_key: yes
   }
 
   dimension_group: updated {
