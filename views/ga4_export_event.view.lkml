@@ -424,6 +424,8 @@ view: ga4_export_event {
   dimension: custom_source {
     type:  string
     sql: CASE
+      WHEN ${param_source} = "Facebook" THEN "facebook"
+      WHEN ${param_source} = "facebook" THEN "facebook"
       WHEN ${param_source} is not null THEN ${param_source}
       ELSE ${traffic_source_source}
       END ;;
