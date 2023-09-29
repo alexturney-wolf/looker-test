@@ -8,6 +8,7 @@ view: ga4_export_item {
     sql: ${TABLE}.id ;;
   }
   dimension: _fivetran_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}._fivetran_id ;;
   }

@@ -2,6 +2,7 @@ view: ga4_export_event {
   sql_table_name: `fivetran-wolf-and-shepher-osfl.google_analytics_4_export.event` ;;
 
   dimension: _fivetran_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}._fivetran_id ;;
   }
@@ -447,6 +448,14 @@ view: ga4_export_event {
   measure: count {
     type: count
     drill_fields: [detail*]
+  }
+  measure: count_sessions {
+    type: number
+    sql: COUNT(${param_ga_session_id}) ;;
+  }
+  measure: count_users {
+    type: number
+    sql: COUNT(${user_id}) ;;
   }
 
   # ----- Sets of fields for drilling ------
