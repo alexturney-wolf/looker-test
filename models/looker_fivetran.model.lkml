@@ -39,6 +39,10 @@ explore: shopify__customer_cohorts {
   label: "Customer Cohorts"
 }
 
+explore: ga4_export_event {
+  label: "ga4_export"
+}
+
 explore: cx {
   label: "CX Pre-Orders"
 }
