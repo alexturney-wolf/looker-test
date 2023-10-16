@@ -448,15 +448,15 @@ view: ga4_export_event {
   dimension: custom_channel {
     type:  string
     sql: CASE
-      WHEN lower(${param_source}) = "facebook" or lower(${param_source}) = "l.facebook.com" OR lower(${param_source}) = "l.instagram.com" THEN "facebook"
+      WHEN lower(${param_source}) = "facebook" or lower(${param_source}) = "l.facebook.com" or lower(${param_source}) = "m.facebook.com" OR lower(${param_source}) = "l.instagram.com" OR lower(${param_source}) = "duckduckgo" THEN "facebook"
       WHEN lower(${param_source}) = "taboola" OR lower(${param_source}) = "outbrain" THEN "Native"
       WHEN lower(${param_source}) = "affiliate" THEN "Affiliate"
       WHEN lower(${param_source}) = "google" OR lower(${param_source}) = "bing" OR lower(${param_source}) = "(direct)" THEN "Direct or Search"
       WHEN ${param_source} is not null THEN ${param_source}
-      WHEN lower(${traffic_source_source}) = "facebook" or lower(${traffic_source_source}) = "l.facebook.com" OR lower(${traffic_source_source}) = "l.instagram.com" THEN "facebook"
+      WHEN lower(${traffic_source_source}) = "facebook" or lower(${traffic_source_source}) = "l.facebook.com" or lower(${traffic_source_source}) = "m.facebook.com"OR lower(${traffic_source_source}) = "l.instagram.com" THEN "facebook"
       WHEN lower(${traffic_source_source}) = "taboola" OR lower(${traffic_source_source}) = "outbrain" THEN "Native"
       WHEN lower(${traffic_source_source}) = "affiliate" THEN "Affiliate"
-      WHEN lower(${traffic_source_source}) = "google" OR lower(${traffic_source_source}) = "bing" OR lower(${traffic_source_source}) = "(direct)" THEN "Direct or Search"
+      WHEN lower(${traffic_source_source}) = "google" OR lower(${traffic_source_source}) = "bing" OR lower(${traffic_source_source}) = "(direct)"  OR lower(${traffic_source_source}) = "duckduckgo" THEN "Direct or Search"
       ELSE ${traffic_source_source}
       END ;;
   }
