@@ -449,10 +449,10 @@ view: ga4_export_event {
     type:  string
     sql: CASE
       WHEN lower(${param_source}) = "facebook" THEN "facebook"
+      WHEN lower(${param_source}) = "taboola" OR lower(${param_source}) = "outbrain" THEN "Native"
+      WHEN lower(${param_source}) = "affiliate" THEN "Affiliate"
+      WHEN lower(${param_source}) = "google" THEN "Direct or Search"
       WHEN ${param_source} is not null THEN ${param_source}
-      WHEN lower(${param_source}) is "taboola" OR lower(${param_source}) is "outbrain" THEN "Native"
-      WHEN lower(${param_source}) is "affiliate" THEN "Affiliate"
-      WHEN lower(${param_source}) is "google" THEN "Direct or Search"
       WHEN ${traffic_source_source} = "Facebook" THEN "facebook"
       ELSE ${traffic_source_source}
       END ;;
