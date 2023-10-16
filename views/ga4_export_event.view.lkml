@@ -445,6 +445,18 @@ view: ga4_export_event {
       ELSE ${traffic_source_name}
       END ;;
   }
+  dimension: custom_channel {
+    type:  string
+    sql: CASE
+      WHEN lower(${param_source}) = "facebook" THEN "facebook"
+      WHEN ${param_source} is not null THEN ${param_source}
+      WHEN lower(${param_source}) is "taboola" OR lower(${param_source}) is "outbrain" THEN "Native"
+      WHEN lower(${param_source}) is "affiliate" THEN "Affiliate"
+      WHEN lower(${param_source}) is "google" THEN "Direct or Search"
+      WHEN ${traffic_source_source} = "Facebook" THEN "facebook"
+      ELSE ${traffic_source_source}
+      END ;;
+  }
   measure: count {
     type: count
     drill_fields: [detail*]
