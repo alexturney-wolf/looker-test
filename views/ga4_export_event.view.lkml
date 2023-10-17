@@ -452,11 +452,13 @@ view: ga4_export_event {
       WHEN lower(${param_source}) = "taboola" OR lower(${param_source}) = "outbrain" THEN "Native"
       WHEN lower(${param_source}) = "affiliate" THEN "Affiliate"
       WHEN lower(${param_source}) = "google" OR lower(${param_source}) = "bing" OR lower(${param_source}) = "(direct)" OR lower(${param_source}) = "duckduckgo" THEN "Direct or Search"
+      WHEN lower(${param_source}) = "klaviyo" THEN "Email or SMS"
       WHEN ${param_source} is not null THEN ${param_source}
       WHEN lower(${traffic_source_source}) = "facebook" or lower(${traffic_source_source}) = "l.facebook.com" or lower(${traffic_source_source}) = "m.facebook.com"OR lower(${traffic_source_source}) = "l.instagram.com" THEN "facebook"
       WHEN lower(${traffic_source_source}) = "taboola" OR lower(${traffic_source_source}) = "outbrain" THEN "Native"
       WHEN lower(${traffic_source_source}) = "affiliate" THEN "Affiliate"
       WHEN lower(${traffic_source_source}) = "google" OR lower(${traffic_source_source}) = "bing" OR lower(${traffic_source_source}) = "(direct)" OR lower(${traffic_source_source}) = "duckduckgo" THEN "Direct or Search"
+      WHEN lower(${traffic_source_source}) = "klaviyo" THEN "Email or SMS"
       ELSE ${traffic_source_source}
       END ;;
   }
