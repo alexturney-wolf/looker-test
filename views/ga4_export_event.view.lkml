@@ -182,9 +182,9 @@ view: ga4_export_event {
     type: string
     sql: ${TABLE}.param_campaign ;;
   }
-  dimension: param_carousel_name {
+  dimension: param_module_title {
     type: string
-    sql: ${TABLE}.param_carousel_name ;;
+    sql: ${TABLE}.param_module_title ;;
   }
   dimension: param_cart_total {
     type: number
@@ -197,6 +197,10 @@ view: ga4_export_event {
   dimension: param_click_url {
     type: string
     sql: ${TABLE}.param_click_url ;;
+  }
+  dimension: param_click_image {
+    type: string
+    sql: ${TABLE}.param_click_image ;;
   }
   dimension: param_content {
     type: string
@@ -297,6 +301,10 @@ view: ga4_export_event {
   dimension: param_product_name {
     type: string
     sql: ${TABLE}.param_product_name ;;
+  }
+  dimension: param_product_color {
+    type: string
+    sql: ${TABLE}.param_product_color ;;
   }
   dimension: param_search_term {
     type: string
