@@ -182,6 +182,10 @@ view: ga4_export_event {
     type: string
     sql: ${TABLE}.param_campaign ;;
   }
+  dimension: param_carousel_name {
+    type: string
+    sql: ${TABLE}.param_carousel_name ;;
+  }
   dimension: param_cart_total {
     type: number
     sql: ${TABLE}.param_cart_total ;;
