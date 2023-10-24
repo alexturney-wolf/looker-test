@@ -3,7 +3,6 @@ view: ga4_export_item {
   drill_fields: [id]
 
   dimension: id {
-    primary_key: yes
     type: string
     sql: ${TABLE}.id ;;
   }

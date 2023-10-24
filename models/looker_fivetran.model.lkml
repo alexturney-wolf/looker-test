@@ -41,6 +41,11 @@ explore: shopify__customer_cohorts {
 
 explore: ga4_export_event {
   label: "ga4_export"
+  join: ga4_export_item {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${ga4_export_event._fivetran_id} = ${ga4_export_item._fivetran_id};;
+  }
 }
 
 explore: cx {
