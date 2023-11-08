@@ -480,11 +480,11 @@ view: ga4_export_event {
   }
   measure: count_sessions {
     type: number
-    sql: COUNT(${param_ga_session_id}) ;;
+    sql: COUNT_DISTINCT(${param_ga_session_id}) ;;
   }
   measure: count_users {
     type: number
-    sql: COUNT(${user_id}) ;;
+    sql: COUNT_DISTINCT(${user_id}) ;;
   }
 
   # ----- Sets of fields for drilling ------
