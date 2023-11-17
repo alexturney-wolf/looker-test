@@ -127,6 +127,11 @@ view: shopify__products {
     sql: ${TABLE}.title ;;
   }
 
+  dimension: variant_color {
+    type:  string
+    sql: IF(REGEXP_CONTAINS(regexp_extract(${TABLE}.title,'.*- (.*)'), '[A-z \\/]+ \\/'),regexp_extract(regexp_extract(${TABLE}.title,'.*- (.*)'),'([A-z \\/]+) \\/'), regexp_extract(regexp_extract(${TABLE}.title,'.*- (.*)'),'([A-z]+)') ) ;;
+  }
+
   dimension_group: updated_timestamp {
     type: time
     timeframes: [
@@ -149,10 +154,5 @@ view: shopify__products {
   measure: count {
     type: count
     drill_fields: []
-  }
-
-  measure: force_measure {
-    type: count_distinct
-    sql: ${product_id} ;;
   }
 }
