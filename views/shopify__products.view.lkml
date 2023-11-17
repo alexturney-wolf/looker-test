@@ -127,11 +127,6 @@ view: shopify__products {
     sql: ${TABLE}.title ;;
   }
 
-  dimension: variant_color {
-    type:  string
-    sql: IF(REGEXP_CONTAINS(regexp_extract(${TABLE}.title,'.*- (.*)'), '[A-z \\/]+ \\/'),regexp_extract(regexp_extract(${TABLE}.title,'.*- (.*)'),'([A-z \\/]+) \\/'), regexp_extract(regexp_extract(${TABLE}.title,'.*- (.*)'),'([A-z]+)') ) ;;
-  }
-
   dimension_group: updated_timestamp {
     type: time
     timeframes: [
