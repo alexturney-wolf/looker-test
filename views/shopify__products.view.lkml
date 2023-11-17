@@ -150,4 +150,9 @@ view: shopify__products {
     type: count
     drill_fields: []
   }
+
+  measure: force_measure {
+    type: count_distinct
+    sql: ${product_id} ;;
+  }
 }
