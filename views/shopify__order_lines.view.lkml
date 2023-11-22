@@ -349,7 +349,7 @@ view: shopify__order_lines {
     value_format_name: usd
   }
 
-  measure: prodrev_minus_discounts {
+  measure: price_minus_discounts {
     type: sum
     sql: ${TABLE}.price - ${TABLE}.total_discount ;;
     value_format_name: usd
