@@ -1,31 +1,19 @@
 connection: "looker_fivetran"
 
-include: "/views/*.view.lkml"                # include all views in the views/ folder in this project
-# include: "/**/*.view.lkml"                 # include all views in this project
-# include: "my_dashboard.dashboard.lookml"   # include a LookML dashboard called my_dashboard
-
-# # Select the views that should be a part of this model,
-# # and define the joins that connect them together.
-#
-# explore: order_items {
-#   join: orders {
-#     relationship: many_to_one
-#     sql_on: ${orders.id} = ${order_items.order_id} ;;
-#   }
-#
-#   join: users {
-#     relationship: many_to_one
-#     sql_on: ${users.id} = ${orders.user_id} ;;
-#   }
-# }
+include: "/views/*.view.lkml"
 
 
-explore: shopify__transactions {
+explore: shopify__orders {
   label: "TEST ROAS"
-  join: shopify__orders {
+  join: shopify__transactions {
     type: full_outer
     relationship: many_to_one
     sql_on: ${shopify__orders.order_id} = ${shopify__transactions.order_id};;
+  }
+  join: ga4_export_event {
+    type: full_outer
+    relationship: many_to_one
+    sql_on: ${shopify__orders.name} = ${ga4_export_event.param_transaction_id};;
   }
   join: shopify__customers {
     type:  left_outer
