@@ -9,6 +9,7 @@ view: daily_spend {
   dimension: _row {
     type: number
     sql: ${TABLE}._row ;;
+    primary_key: yes
   }
   dimension: bing {
     type: number
