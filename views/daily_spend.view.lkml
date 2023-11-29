@@ -76,6 +76,7 @@ view: daily_spend {
   dimension: total_spend {
     type: number
     sql: ${TABLE}.total_spend ;;
+    value_format_name: usd
   }
   dimension: tv {
     type: number
