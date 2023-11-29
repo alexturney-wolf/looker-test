@@ -2,7 +2,6 @@ connection: "looker_fivetran"
 
 include: "/views/*.view.lkml"
 
-
 explore: shopify__orders {
   label: "TEST ROAS"
   join: shopify__transactions {
