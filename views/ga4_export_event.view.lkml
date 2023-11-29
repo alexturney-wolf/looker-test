@@ -474,6 +474,15 @@ view: ga4_export_event {
       ELSE ${traffic_source_source}
       END ;;
   }
+  dimension: master_channel {
+    type:  string
+    sql: CASE
+      WHEN lower(${param_source}) = "facebook" or lower(${param_source}) = "l.facebook.com" or lower(${param_source}) = "m.facebook.com" OR lower(${param_source}) = "l.instagram.com" THEN "Facebook"
+      WHEN ${param_source} is not null THEN "Other"
+      WHEN lower(${traffic_source_source}) = "facebook" or lower(${traffic_source_source}) = "l.facebook.com" or lower(${traffic_source_source}) = "m.facebook.com"OR lower(${traffic_source_source}) = "l.instagram.com" THEN "Facebook"
+      ELSE "Other"
+      END ;;
+  }
   measure: count {
     type: count
     drill_fields: [detail*]
