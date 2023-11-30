@@ -2,7 +2,7 @@ view: order_line_tags {
   derived_table: {
     sql: SELECT
           order_line.id  AS order_line_id,
-          STRING_AGG(DISTINCT CAST(order_line.properties AS STRING), ', ') AS order_line_properties
+          STRING_AGG(DISTINCT lower(CAST(order_line.properties AS STRING)), ', ') AS order_line_properties
       FROM `fivetran-wolf-and-shepher-osfl.shopify.order_line`
            AS order_line
       GROUP BY
