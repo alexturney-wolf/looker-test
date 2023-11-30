@@ -527,6 +527,11 @@ view: shopify__orders {
     value_format_name: usd
   }
 
+  measure: total_customers {
+    type: count_distinct
+    sql: ${customer_id} ;;
+  }
+
   measure: total_revenue {
     type: sum
     sql: ${total_price} ;;
