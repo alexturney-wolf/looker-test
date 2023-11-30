@@ -28,7 +28,7 @@ view: customer_tag {
 
   dimension: value {
     type: string
-    sql: ${TABLE}.value ;;
+    sql: lower(${TABLE}.value) ;;
   }
 
   measure: count {
