@@ -27,7 +27,7 @@ view: order_tags_by_order {
 
   dimension: order_tags {
     type: string
-    sql: ${TABLE}.order_tag_list_test ;;
+    sql: lower(${TABLE}.order_tag_list_test) ;;
   }
 
   dimension: is_preorder {
