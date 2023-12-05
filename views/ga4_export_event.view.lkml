@@ -460,7 +460,7 @@ view: ga4_export_event {
   dimension: custom_channel {
     type:  string
     sql: CASE
-      WHEN lower(${param_source}) = "facebook" or lower(${param_source}) LIKE '%facebook%'  or lower(${param_source}) LIKE '%instagram%' THEN "facebook"
+      WHEN lower(${param_source}) = "facebook" or lower(${param_source}) LIKE '%facebook%'  or lower(${param_source}) LIKE '%instagram%'  or lower(${param_source}) LIKE '%IG%' THEN "facebook"
       WHEN lower(${param_source}) = "taboola" OR lower(${param_source}) = "outbrain" THEN "Native"
       WHEN lower(${param_source}) = "affiliate" THEN "Affiliate"
       WHEN lower(${param_source}) = "google" OR lower(${param_source}) = "bing" OR lower(${param_source}) = "(direct)" OR lower(${param_source}) = "duckduckgo" THEN "Direct or Search"
