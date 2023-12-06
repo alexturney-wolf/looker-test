@@ -527,6 +527,12 @@ view: shopify__orders {
     value_format_name: usd
   }
 
+  measure: prodrev_minusdiscounts_plusshipping {
+    type: number
+    sql: ${total_product_revenue} - IFNULL(${total_discounts_overall}, 0) + IFNULL(${total_shipping_cost}, 0);;
+    value_format_name: usd
+  }
+
   measure: total_customers {
     type: count_distinct
     sql: ${customer_id} ;;
